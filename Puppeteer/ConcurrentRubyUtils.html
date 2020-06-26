@@ -150,7 +150,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>wait for all promises.</p>
+</div></span>
   
 </li>
 
@@ -172,7 +174,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>wait for first promises.</p>
+</div></span>
   
 </li>
 
@@ -256,16 +260,16 @@
       <pre class="lines">
 
 
-20
-21
-22
-23
-24
-25
-26</pre>
+26
+27
+28
+29
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_await'>await</span><span class='lparen'>(</span><span class='id identifier rubyid_future_or_value'>future_or_value</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_future_or_value'>future_or_value</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Concurrent</span><span class='op'>::</span><span class='const'>Promises</span><span class='op'>::</span><span class='const'>Future</span><span class='rparen'>)</span>
@@ -288,22 +292,33 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>wait for all promises. REMARK: This method doesn&#39;t assure the order of calling. for example, await_all(async1, async2) calls calls2 -&gt; calls1 often.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3
-4
-5
 6
 7
 8
-9</pre>
+9
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_await_all'>await_all</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Enumerable</span><span class='rparen'>)</span>
@@ -326,22 +341,33 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>wait for first promises. REMARK: This method doesn&#39;t assure the order of calling. for example, await_all(async1, async2) calls calls2 -&gt; calls1 often.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-11
-12
-13
-14
-15
-16
-17</pre>
+17
+18
+19
+20
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_await_any'>await_any</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Enumerable</span><span class='rparen'>)</span>
@@ -370,12 +396,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_future'>future</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'>Concurrent</span><span class='op'>::</span><span class='const'>Promises</span><span class='period'>.</span><span class='id identifier rubyid_future'>future</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -400,16 +426,16 @@
       <pre class="lines">
 
 
-32
-33
-34
-35
-36
-37
-38</pre>
+38
+39
+40
+41
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolvable_future'>resolvable_future</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_future'><span class='object_link'><a href="#future-instance_method" title="Puppeteer::ConcurrentRubyUtils#future (method)">future</a></span></span> <span class='op'>=</span> <span class='const'>Concurrent</span><span class='op'>::</span><span class='const'>Promises</span><span class='period'>.</span><span class='id identifier rubyid_resolvable_future'>resolvable_future</span>
@@ -428,7 +454,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jun 25 16:25:11 2020 by
+  Generated on Fri Jun 26 17:14:06 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
