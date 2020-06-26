@@ -814,8 +814,7 @@
 54
 55
 56
-57
-58</pre>
+57</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 15</span>
@@ -831,7 +830,6 @@
 
   <span class='comment'># @type {!Map&lt;number, !ExecutionContext&gt;}
 </span>  <span class='ivar'>@context_id_to_context</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@context_id_created</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
 
   <span class='comment'># @type {!Set&lt;string&gt;}
 </span>  <span class='ivar'>@isolated_worlds</span> <span class='op'>=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -902,12 +900,12 @@
       <pre class="lines">
 
 
+59
 60
-61
-62</pre>
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -945,12 +943,12 @@
       <pre class="lines">
 
 
+80
 81
-82
-83</pre>
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_network_manager'>network_manager</span>
   <span class='ivar'>@network_manager</span>
@@ -988,12 +986,12 @@
       <pre class="lines">
 
 
+59
 60
-61
-62</pre>
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timeout_settings'>timeout_settings</span>
   <span class='ivar'>@timeout_settings</span>
@@ -1049,6 +1047,7 @@
       <pre class="lines">
 
 
+261
 262
 263
 264
@@ -1064,11 +1063,10 @@
 274
 275
 276
-277
-278</pre>
+277</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 261</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ensure_isolated_world'>ensure_isolated_world</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@isolated_worlds</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -1107,23 +1105,15 @@
       <pre class="lines">
 
 
-355
-356
-357
-358
-359
-360
-361</pre>
+343
+344
+345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 355</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 343</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execution_context_by_id'>execution_context_by_id</span><span class='lparen'>(</span><span class='id identifier rubyid_context_id'>context_id</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='ivar'>@context_id_to_context</span><span class='lbracket'>[</span><span class='id identifier rubyid_context_id'>context_id</span><span class='rbracket'>]</span>
-  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_context'>context</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INTERNAL ERROR: missing context with id = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_context_id'>context_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_context'>context</span>
+  <span class='ivar'>@context_id_to_context</span><span class='lbracket'>[</span><span class='id identifier rubyid_context_id'>context_id</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INTERNAL ERROR: missing context with id = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_context_id'>context_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1182,12 +1172,12 @@
       <pre class="lines">
 
 
+201
 202
-203
-204</pre>
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 201</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_frame'>frame</span><span class='lparen'>(</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='rparen'>)</span>
   <span class='ivar'>@frames</span><span class='lbracket'>[</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='rbracket'>]</span>
@@ -1234,12 +1224,12 @@
       <pre class="lines">
 
 
+195
 196
-197
-198</pre>
+197</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 195</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_frames'>frames</span>
   <span class='ivar'>@frames</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span>
@@ -1288,6 +1278,7 @@
       <pre class="lines">
 
 
+298
 299
 300
 301
@@ -1311,12 +1302,10 @@
 319
 320
 321
-322
-323
-324</pre>
+322</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 299</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 298</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_execution_context_created'>handle_execution_context_created</span><span class='lparen'>(</span><span class='id identifier rubyid_context_payload'>context_payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_frame'>frame</span> <span class='op'>=</span> <span class='id identifier rubyid_if_present'>if_present</span><span class='lparen'>(</span><span class='id identifier rubyid_context_payload'>context_payload</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>auxData</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>frameId</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='op'>|</span> <span class='ivar'>@frames</span><span class='lbracket'>[</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
@@ -1342,7 +1331,6 @@
     <span class='id identifier rubyid_world'>world</span><span class='period'>.</span><span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span>
   <span class='kw'>end</span>
   <span class='ivar'>@context_id_to_context</span><span class='lbracket'>[</span><span class='id identifier rubyid_context_payload'>context_payload</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>id</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span>
-  <span class='ivar'>@context_id_created</span><span class='lbracket'>[</span><span class='id identifier rubyid_context_payload'>context_payload</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>id</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1388,24 +1376,22 @@
       <pre class="lines">
 
 
+325
+326
 327
 328
 329
 330
 331
-332
-333
-334
-335</pre>
+332</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 327</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 325</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_execution_context_destroyed'>handle_execution_context_destroyed</span><span class='lparen'>(</span><span class='id identifier rubyid_execution_context_id'>execution_context_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='ivar'>@context_id_to_context</span><span class='lbracket'>[</span><span class='id identifier rubyid_execution_context_id'>execution_context_id</span><span class='rbracket'>]</span>
-  <span class='kw'>return</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_context'>context</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_context'>context</span>
   <span class='ivar'>@context_id_to_context</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_execution_context_id'>execution_context_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@context_id_created</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_execution_context_id'>execution_context_id</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_world'>world</span>
     <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_world'>world</span><span class='period'>.</span><span class='id identifier rubyid_delete_context'>delete_context</span><span class='lparen'>(</span><span class='id identifier rubyid_execution_context_id'>execution_context_id</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -1430,43 +1416,25 @@
       <pre class="lines">
 
 
+334
+335
+336
 337
 338
 339
 340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353</pre>
+341</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 337</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 334</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_execution_contexts_cleared'>handle_execution_contexts_cleared</span>
-  <span class='comment'># executionContextsCleared is often notified after executionContextCreated.
-</span>  <span class='comment'>#   D, [2020-04-06T01:47:03.101227 #13823] DEBUG -- : RECV &lt;&lt; {&quot;method&quot;=&gt;&quot;Runtime.executionContextCreated&quot;, &quot;params&quot;=&gt;{&quot;context&quot;=&gt;{&quot;id&quot;=&gt;5, &quot;origin&quot;=&gt;&quot;https://github.com&quot;, &quot;name&quot;=&gt;&quot;&quot;, &quot;auxData&quot;=&gt;{&quot;isDefault&quot;=&gt;true, &quot;type&quot;=&gt;&quot;default&quot;, &quot;frameId&quot;=&gt;&quot;71C347B70848B89DDDEFAA8AB5B0BC92&quot;}}}, &quot;sessionId&quot;=&gt;&quot;53F088EED260C28001D26A019F95D9E3&quot;}
-</span>  <span class='comment'>#   D, [2020-04-06T01:47:03.101439 #13823] DEBUG -- : RECV &lt;&lt; {&quot;method&quot;=&gt;&quot;Page.frameNavigated&quot;, &quot;params&quot;=&gt;{&quot;frame&quot;=&gt;{&quot;id&quot;=&gt;&quot;71C347B70848B89DDDEFAA8AB5B0BC92&quot;, &quot;loaderId&quot;=&gt;&quot;80338225D035AC96BAE8F6D4E81C7D51&quot;, &quot;url&quot;=&gt;&quot;https://github.com/search?q=puppeteer&quot;, &quot;securityOrigin&quot;=&gt;&quot;https://github.com&quot;, &quot;mimeType&quot;=&gt;&quot;text/html&quot;}}, &quot;sessionId&quot;=&gt;&quot;53F088EED260C28001D26A019F95D9E3&quot;}
-</span>  <span class='comment'>#   D, [2020-04-06T01:47:03.101325 #13823] DEBUG -- : RECV &lt;&lt; {&quot;method&quot;=&gt;&quot;Target.targetInfoChanged&quot;, &quot;params&quot;=&gt;{&quot;targetInfo&quot;=&gt;{&quot;targetId&quot;=&gt;&quot;71C347B70848B89DDDEFAA8AB5B0BC92&quot;, &quot;type&quot;=&gt;&quot;page&quot;, &quot;title&quot;=&gt;&quot;https://github.com/search?q=puppeteer&quot;, &quot;url&quot;=&gt;&quot;https://github.com/search?q=puppeteer&quot;, &quot;attached&quot;=&gt;true, &quot;browserContextId&quot;=&gt;&quot;AF37BC660284CE1552B4ECB147BE9305&quot;}}}
-</span>  <span class='comment'>#   D, [2020-04-06T01:47:03.101269 #13823] DEBUG -- : RECV &lt;&lt; {&quot;method&quot;=&gt;&quot;Runtime.executionContextsCleared&quot;, &quot;params&quot;=&gt;{}, &quot;sessionId&quot;=&gt;&quot;53F088EED260C28001D26A019F95D9E3&quot;}
-</span>  <span class='comment'># it unexpectedly clears the created execution context.
-</span>  <span class='comment'># To avoid the problem, just skip recent created ids.
-</span>  <span class='id identifier rubyid_now'>now</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
-  <span class='id identifier rubyid_context_ids_to_skip'>context_ids_to_skip</span> <span class='op'>=</span> <span class='ivar'>@context_id_created</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='id identifier rubyid_v'>v</span> <span class='op'>&lt;</span> <span class='int'>1</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
-  <span class='ivar'>@context_id_to_context</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_context_ids_to_skip'>context_ids_to_skip</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_execution_context_id'>execution_context_id</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='op'>|</span>
+  <span class='ivar'>@context_id_to_context</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_execution_context_id'>execution_context_id</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='op'>|</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_world'>world</span>
       <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_world'>world</span><span class='period'>.</span><span class='id identifier rubyid_delete_context'>delete_context</span><span class='lparen'>(</span><span class='id identifier rubyid_execution_context_id'>execution_context_id</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-  <span class='ivar'>@context_id_to_context</span><span class='period'>.</span><span class='id identifier rubyid_select!'>select!</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_context_ids_to_skip'>context_ids_to_skip</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='ivar'>@context_id_to_context</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1523,6 +1491,7 @@
       <pre class="lines">
 
 
+207
 208
 209
 210
@@ -1532,11 +1501,10 @@
 214
 215
 216
-217
-218</pre>
+217</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 207</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_frame_attached'>handle_frame_attached</span><span class='lparen'>(</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='comma'>,</span> <span class='id identifier rubyid_parent_frame_id'>parent_frame_id</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@frames</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='rparen'>)</span>
@@ -1593,15 +1561,15 @@
       <pre class="lines">
 
 
+290
 291
 292
 293
 294
-295
-296</pre>
+295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 291</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 290</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_frame_detached'>handle_frame_detached</span><span class='lparen'>(</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_frame'>frame</span> <span class='op'>=</span> <span class='ivar'>@frames</span><span class='lbracket'>[</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='rbracket'>]</span>
@@ -1653,6 +1621,7 @@
       <pre class="lines">
 
 
+220
 221
 222
 223
@@ -1690,11 +1659,10 @@
 255
 256
 257
-258
-259</pre>
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 221</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 220</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_frame_navigated'>handle_frame_navigated</span><span class='lparen'>(</span><span class='id identifier rubyid_frame_payload'>frame_payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_is_main_frame'>is_main_frame</span> <span class='op'>=</span> <span class='op'>!</span><span class='id identifier rubyid_frame_payload'>frame_payload</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>parentId</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -1790,20 +1758,20 @@
       <pre class="lines">
 
 
+281
 282
 283
 284
 285
 286
-287
-288</pre>
+287</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 282</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 281</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_frame_navigated_within_document'>handle_frame_navigated_within_document</span><span class='lparen'>(</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_frame'>frame</span> <span class='op'>=</span> <span class='ivar'>@frames</span><span class='lbracket'>[</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='rbracket'>]</span>
-  <span class='kw'>return</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_frame'>frame</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_frame'>frame</span>
   <span class='id identifier rubyid_frame'>frame</span><span class='period'>.</span><span class='id identifier rubyid_navigated_within_document'>navigated_within_document</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_emit_event'>emit_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.FrameManager.FrameNavigatedWithinDocument</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_frame'>frame</span>
   <span class='id identifier rubyid_emit_event'>emit_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.FrameManager.FrameNavigated</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_frame'>frame</span>
@@ -1852,15 +1820,15 @@
       <pre class="lines">
 
 
+164
 165
 166
 167
 168
-169
-170</pre>
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 164</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_frame_stopped_loading'>handle_frame_stopped_loading</span><span class='lparen'>(</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_frame'>frame</span> <span class='op'>=</span> <span class='ivar'>@frames</span><span class='lbracket'>[</span><span class='id identifier rubyid_frame_id'>frame_id</span><span class='rbracket'>]</span>
@@ -1912,6 +1880,7 @@
       <pre class="lines">
 
 
+172
 173
 174
 175
@@ -1921,11 +1890,10 @@
 179
 180
 181
-182
-183</pre>
+182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 172</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_frame_tree'>handle_frame_tree</span><span class='lparen'>(</span><span class='id identifier rubyid_frame_tree'>frame_tree</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_frame_tree'>frame_tree</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>frame</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>parentId</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -1982,15 +1950,15 @@
       <pre class="lines">
 
 
+156
 157
 158
 159
 160
-161
-162</pre>
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_lifecycle_event'>handle_lifecycle_event</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_frame'>frame</span> <span class='op'>=</span> <span class='ivar'>@frames</span><span class='lbracket'>[</span><span class='id identifier rubyid_event'>event</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>frameId</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rbracket'>]</span>
@@ -2040,12 +2008,12 @@
       <pre class="lines">
 
 
+190
 191
-192
-193</pre>
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 191</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_main_frame'>main_frame</span>
   <span class='ivar'>@main_frame</span>
@@ -2129,6 +2097,7 @@
       <pre class="lines">
 
 
+88
 89
 90
 91
@@ -2171,11 +2140,10 @@
 128
 129
 130
-131
-132</pre>
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_navigate_frame'>navigate_frame</span><span class='lparen'>(</span><span class='id identifier rubyid_frame'>frame</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='label'>referer:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_assert_no_legacy_navigation_options'>assert_no_legacy_navigation_options</span><span class='lparen'>(</span><span class='label'>wait_until:</span> <span class='id identifier rubyid_wait_until'>wait_until</span><span class='rparen'>)</span>
@@ -2263,12 +2231,12 @@
       <pre class="lines">
 
 
+185
 186
-187
-188</pre>
+187</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_page'>page</span>
   <span class='ivar'>@page</span>
@@ -2350,6 +2318,7 @@
       <pre class="lines">
 
 
+136
 137
 138
 139
@@ -2366,11 +2335,10 @@
 150
 151
 152
-153
-154</pre>
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame_manager.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_frame_navigation'>wait_for_frame_navigation</span><span class='lparen'>(</span><span class='id identifier rubyid_frame'>frame</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_assert_no_legacy_navigation_options'>assert_no_legacy_navigation_options</span><span class='lparen'>(</span><span class='label'>wait_until:</span> <span class='id identifier rubyid_wait_until'>wait_until</span><span class='rparen'>)</span>
@@ -2400,7 +2368,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jun 26 17:14:08 2020 by
+  Generated on Fri Jun 26 17:33:24 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
