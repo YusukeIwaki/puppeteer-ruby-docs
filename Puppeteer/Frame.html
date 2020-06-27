@@ -328,50 +328,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#async_click-instance_method" title="#async_click (instance method)">#<strong>async_click</strong>  &#x21d2; Future </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#async_wait_for_navigation-instance_method" title="#async_wait_for_navigation (instance method)">#<strong>async_wait_for_navigation</strong>  &#x21d2; Future </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#child_frames-instance_method" title="#child_frames (instance method)">#<strong>child_frames</strong>  &#x21d2; Object </a>
     
 
@@ -1530,12 +1486,12 @@
       <pre class="lines">
 
 
-145
-146
-147</pre>
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_script_tag'>add_script_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_script_tag'>script_tag</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='id identifier rubyid_add_script_tag'>add_script_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_script_tag'>script_tag</span><span class='rparen'>)</span>
@@ -1597,203 +1553,15 @@
       <pre class="lines">
 
 
-151
-152
-153</pre>
+158
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 158</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_style_tag'>add_style_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_style_tag'>style_tag</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='id identifier rubyid_add_style_tag'>add_style_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_style_tag'>style_tag</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="async_click-instance_method">
-  
-    #<strong>async_click</strong>  &#x21d2; <tt>Future</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>selector</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>delay</span>
-      
-      
-        <span class='type'>(<tt>Number</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>button</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>“left”|“right”|“middle”</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>click_count</span>
-      
-      
-        <span class='type'>(<tt>Number</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Future</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-160
-161
-162</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 160</span>
-
-<span class='id identifier rubyid_async'>async</span> <span class='kw'>def</span> <span class='id identifier rubyid_async_click'>async_click</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>button:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>click_count:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_click'>click</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='id identifier rubyid_delay'>delay</span><span class='comma'>,</span> <span class='label'>button:</span> <span class='id identifier rubyid_button'>button</span><span class='comma'>,</span> <span class='label'>click_count:</span> <span class='id identifier rubyid_click_count'>click_count</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="async_wait_for_navigation-instance_method">
-  
-    #<strong>async_wait_for_navigation</strong>  &#x21d2; <tt>Future</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>timeout</span>
-      
-      
-        <span class='type'>(<tt>number|nil</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>wait_until</span>
-      
-      
-        <span class='type'>(<tt>string|nil</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>&#39;load&#39; | &#39;domcontentloaded&#39; | &#39;networkidle0&#39; | &#39;networkidle2&#39;</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Future</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-45
-46
-47</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 45</span>
-
-<span class='id identifier rubyid_async'>async</span> <span class='kw'>def</span> <span class='id identifier rubyid_async_wait_for_navigation'>async_wait_for_navigation</span><span class='lparen'>(</span><span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_wait_for_navigation'>wait_for_navigation</span><span class='lparen'>(</span><span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='id identifier rubyid_wait_until'>wait_until</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1815,12 +1583,12 @@
       <pre class="lines">
 
 
-135
-136
-137</pre>
+142
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 142</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_child_frames'>child_frames</span>
   <span class='ivar'>@child_frames</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
@@ -1913,12 +1681,12 @@
       <pre class="lines">
 
 
-168
-169
-170</pre>
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_click'>click</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>button:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>click_count:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@secondary_world</span><span class='period'>.</span><span class='id identifier rubyid_click'>click</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='id identifier rubyid_delay'>delay</span><span class='comma'>,</span> <span class='label'>button:</span> <span class='id identifier rubyid_button'>button</span><span class='comma'>,</span> <span class='label'>click_count:</span> <span class='id identifier rubyid_click_count'>click_count</span><span class='rparen'>)</span>
@@ -1943,12 +1711,12 @@
       <pre class="lines">
 
 
-106
-107
-108</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content'>content</span>
   <span class='ivar'>@secondary_world</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span>
@@ -1973,18 +1741,18 @@
       <pre class="lines">
 
 
-296
-297
-298
-299
-300
-301
-302
-303
-304</pre>
+310
+311
+312
+313
+314
+315
+316
+317
+318</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 296</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 310</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_detach'>detach</span>
   <span class='ivar'>@detached</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -2037,12 +1805,12 @@
       <pre class="lines">
 
 
-139
-140
-141</pre>
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 146</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_detached?'>detached?</span>
   <span class='ivar'>@detached</span>
@@ -2102,12 +1870,12 @@
       <pre class="lines">
 
 
-61
-62
-63</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -2169,12 +1937,12 @@
       <pre class="lines">
 
 
-55
-56
-57</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -2199,12 +1967,12 @@
       <pre class="lines">
 
 
-49
-50
-51</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execution_context'>execution_context</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='id identifier rubyid_execution_context'>execution_context</span>
@@ -2392,16 +2160,16 @@
       <pre class="lines">
 
 
-283
-284
-285
-286
-287
-288
-289</pre>
+297
+298
+299
+300
+301
+302
+303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 283</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 297</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_lifecycle_event'>handle_lifecycle_event</span><span class='lparen'>(</span><span class='id identifier rubyid_loader_id'>loader_id</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>init</span><span class='tstring_end'>&#39;</span></span>
@@ -2430,13 +2198,13 @@
       <pre class="lines">
 
 
-291
-292
-293
-294</pre>
+305
+306
+307
+308</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 291</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 305</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_loading_stopped'>handle_loading_stopped</span>
   <span class='ivar'>@lifecycle_events</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DOMContentLoaded</span><span class='tstring_end'>&#39;</span></span>
@@ -2486,12 +2254,12 @@
       <pre class="lines">
 
 
-178
-179
-180</pre>
+180
+181
+182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 180</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hover'>hover</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='ivar'>@secondary_world</span><span class='period'>.</span><span class='id identifier rubyid_hover'>hover</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -2538,12 +2306,12 @@
       <pre class="lines">
 
 
-117
-118
-119</pre>
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
@@ -2592,19 +2360,19 @@
       <pre class="lines">
 
 
-267
-268
-269
-270
-271
-272
-273
-274
-275
-276</pre>
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 267</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 281</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_navigated'>navigated</span><span class='lparen'>(</span><span class='id identifier rubyid_frame_payload'>frame_payload</span><span class='rparen'>)</span>
   <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_frame_payload'>frame_payload</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -2660,12 +2428,12 @@
       <pre class="lines">
 
 
-279
-280
-281</pre>
+293
+294
+295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 279</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 293</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_navigated_within_document'>navigated_within_document</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='ivar'>@url</span> <span class='op'>=</span> <span class='id identifier rubyid_url'>url</span>
@@ -2712,12 +2480,12 @@
       <pre class="lines">
 
 
-127
-128
-129</pre>
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parent_frame'>parent_frame</span>
   <span class='ivar'>@parent_frame</span>
@@ -2781,12 +2549,12 @@
       <pre class="lines">
 
 
+67
 68
-69
-70</pre>
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='const'>S</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='const'>S</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -2859,12 +2627,12 @@
       <pre class="lines">
 
 
-185
-186
-187</pre>
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 187</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
   <span class='ivar'>@secondary_world</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
@@ -2924,12 +2692,12 @@
       <pre class="lines">
 
 
-112
-113
-114</pre>
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 119</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_content'>set_content</span><span class='lparen'>(</span><span class='id identifier rubyid_html'>html</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@secondary_world</span><span class='period'>.</span><span class='id identifier rubyid_set_content'>set_content</span><span class='lparen'>(</span><span class='id identifier rubyid_html'>html</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='id identifier rubyid_wait_until'>wait_until</span><span class='rparen'>)</span>
@@ -3015,12 +2783,12 @@
       <pre class="lines">
 
 
-86
 87
-88</pre>
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='const'>Seval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='const'>Seval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -3084,12 +2852,12 @@
       <pre class="lines">
 
 
-102
-103
-104</pre>
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='const'>SS</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='const'>SS</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -3175,12 +2943,12 @@
       <pre class="lines">
 
 
-95
-96
-97</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='const'>SSeval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='const'>SSeval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -3298,12 +3066,12 @@
       <pre class="lines">
 
 
-190
-191
-192</pre>
+194
+195
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 190</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 194</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='ivar'>@secondary_world</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -3350,12 +3118,12 @@
       <pre class="lines">
 
 
-262
-263
-264</pre>
+276
+277
+278</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 276</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_title'>title</span>
   <span class='ivar'>@secondary_world</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span>
@@ -3428,12 +3196,12 @@
       <pre class="lines">
 
 
-197
-198
-199</pre>
+203
+204
+205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 197</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 203</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type_text'>type_text</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='id identifier rubyid_type_text'>type_text</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='id identifier rubyid_delay'>delay</span><span class='rparen'>)</span>
@@ -3480,12 +3248,12 @@
       <pre class="lines">
 
 
-122
-123
-124</pre>
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_url'>url</span>
   <span class='ivar'>@url</span>
@@ -3571,12 +3339,12 @@
       <pre class="lines">
 
 
-257
-258
-259</pre>
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 257</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 269</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_function'>wait_for_function</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='ivar'>@main_world</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_function'>wait_for_function</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -3674,19 +3442,19 @@
       <pre class="lines">
 
 
-227
-228
-229
-230
-231
-232
-233
-234
 235
-236</pre>
+236
+237
+238
+239
+240
+241
+242
+243
+244</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 227</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 235</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_selector'>wait_for_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='ivar'>@secondary_world</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_selector'>wait_for_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='id identifier rubyid_visible'>visible</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='id identifier rubyid_hidden'>hidden</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
@@ -3791,19 +3559,19 @@
       <pre class="lines">
 
 
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251</pre>
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 242</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/frame.rb', line 252</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_xpath'>wait_for_xpath</span><span class='lparen'>(</span><span class='id identifier rubyid_xpath'>xpath</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='ivar'>@secondary_world</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_xpath'>wait_for_xpath</span><span class='lparen'>(</span><span class='id identifier rubyid_xpath'>xpath</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='id identifier rubyid_visible'>visible</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='id identifier rubyid_hidden'>hidden</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
@@ -3825,7 +3593,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jun 27 02:02:47 2020 by
+  Generated on Sat Jun 27 13:56:49 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>

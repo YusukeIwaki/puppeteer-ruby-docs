@@ -237,50 +237,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#async_evaluate-instance_method" title="#async_evaluate (instance method)">#<strong>async_evaluate</strong>  &#x21d2; Future&lt;Object&gt; </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#async_evaluate_handle-instance_method" title="#async_evaluate_handle (instance method)">#<strong>async_evaluate_handle</strong>  &#x21d2; Future&lt;Puppeteer::JSHandle&gt; </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#dispose-instance_method" title="#dispose (instance method)">#<strong>dispose</strong>  &#x21d2; Object </a>
     
 
@@ -766,160 +722,15 @@
       <pre class="lines">
 
 
-116
-117
-118</pre>
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_element'>as_element</span>
   <span class='kw'>nil</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="async_evaluate-instance_method">
-  
-    #<strong>async_evaluate</strong>  &#x21d2; <tt>Future&lt;Object&gt;</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>page_function</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Future&lt;Object&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-51
-52
-53</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 51</span>
-
-<span class='id identifier rubyid_async'>async</span> <span class='kw'>def</span> <span class='id identifier rubyid_async_evaluate'>async_evaluate</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="async_evaluate_handle-instance_method">
-  
-    #<strong>async_evaluate_handle</strong>  &#x21d2; <tt>Future&lt;<span class='object_link'><a href="" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span>&gt;</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>page_function</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>args</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;*&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Future&lt;<span class='object_link'><a href="" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span>&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-65
-66
-67</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 65</span>
-
-<span class='id identifier rubyid_async'>async</span> <span class='kw'>def</span> <span class='id identifier rubyid_async_evaluate_handle'>async_evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -941,15 +752,15 @@
       <pre class="lines">
 
 
-120
-121
-122
-123
-124
-125</pre>
+111
+112
+113
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dispose'>dispose</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@disposed</span>
@@ -999,12 +810,12 @@
       <pre class="lines">
 
 
-127
-128
-129</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disposed?'>disposed?</span>
   <span class='ivar'>@disposed</span>
@@ -1144,12 +955,12 @@
       <pre class="lines">
 
 
-58
-59
-60</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_execution_context'>execution_context</span><span class='period'>.</span><span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -1226,6 +1037,15 @@
       <pre class="lines">
 
 
+89
+90
+91
+92
+93
+94
+95
+96
+97
 98
 99
 100
@@ -1233,19 +1053,10 @@
 102
 103
 104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114</pre>
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_json_value'>json_value</span>
   <span class='comment'># original logic was:
@@ -1308,19 +1119,19 @@
       <pre class="lines">
 
 
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96</pre>
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_properties'>properties</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@remote_object</span><span class='period'>.</span><span class='id identifier rubyid_properties'>properties</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1342,7 +1153,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jun 27 02:02:48 2020 by
+  Generated on Sat Jun 27 13:56:49 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
