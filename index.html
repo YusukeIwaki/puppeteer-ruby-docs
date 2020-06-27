@@ -105,6 +105,56 @@
 
 <p>More usage examples can be found <a href="https://github.com/YusukeIwaki/puppeteer-ruby-example">here</a></p>
 
+<h2 id="label-Collaboration+with+Selenium+or+Capybara">Collaboration with Selenium or Capybara</h2>
+
+<p>It is really remarkable that we can use puppeteer functions in existing Selenium or Capybara codes, with a few configuration in advance.</p>
+
+<pre class="code ruby"><code class="ruby">require &#39;spec_helper&#39;
+
+RSpec.describe &#39;hotel.testplanisphere.dev&#39;, type: :feature do
+  before {
+    visit &#39;https://hotel.testplanisphere.dev/&#39;
+
+    # acquire Puppeteer::Browser instance, by connecting Chrome with DevTools Protocol.
+    @browser = Puppeteer.connect(
+                 browser_url: &#39;http://localhost:9222&#39;,
+                 default_viewport: Puppeteer::Viewport.new(width: 1280, height: 800))
+  }
+
+  after {
+    # release Puppeteer::Browser reesource.
+    @browser.disconnect
+  }
+
+  it &#39;can be handled with puppeteer and assert with Capybara&#39; do
+    # automation with puppeteer
+    puppeteer_page = @browser.pages.first
+    puppeteer_page.wait_for_selector(&#39;li.nav-item&#39;)
+
+    reservation_link = puppeteer_page.SS(&#39;li.nav-item&#39;)[1]
+
+    await_all(
+      puppeteer_page.async_wait_for_navigation,
+      reservation_link.async_click,
+    )
+
+    # expectation with Capybara DSL
+    expect(page).to have_text(&#39;宿泊プラン一覧&#39;)
+  end
+
+  it &#39;can be handled with Capybara and assert with puppeteer&#39; do
+    # automation with Capybara
+    page.all(&#39;li.nav-item&#39;)[1].click
+
+    # expectation with puppeteer
+    puppeteer_page = @browser.pages.first
+    body_text = puppeteer_page.Seval(&#39;body&#39;, &#39;(el) =&gt; el.textContent&#39;)
+    expect(body_text).to include(&#39;宿泊プラン一覧&#39;)
+  end
+</code></pre>
+
+<p>The detailed step of configuration can be found <a href="https://github.com/YusukeIwaki/puppeteer-ruby-example/tree/master/_with_capybara-rspec">here</a>.</p>
+
 <h2 id="label-API">API</h2>
 
 <p><a href="https://yusukeiwaki.github.io/puppeteer-ruby-docs">yusukeiwaki.github.io/puppeteer-ruby-docs</a>/</p>
@@ -115,7 +165,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Sat Jun 27 13:56:48 2020 by
+  Generated on Sat Jun 27 14:10:56 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
