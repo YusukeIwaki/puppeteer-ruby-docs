@@ -356,10 +356,6 @@
       <pre class="lines">
 
 
-31
-32
-33
-34
 35
 36
 37
@@ -369,10 +365,17 @@
 41
 42
 43
-44</pre>
+44
+45
+46
+47
+48
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>url:</span><span class='comma'>,</span> <span class='label'>max_payload_size:</span><span class='rparen'>)</span>
   <span class='ivar'>@impl</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="WebSocket/DriverImpl.html" title="Puppeteer::WebSocket::DriverImpl (class)">DriverImpl</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="WebSocket/DriverImpl.html#initialize-instance_method" title="Puppeteer::WebSocket::DriverImpl#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
@@ -386,7 +389,10 @@
   <span class='kw'>rescue</span> <span class='const'>EOFError</span>
     <span class='comment'># Google Chrome was gone.
 </span>    <span class='comment'># We have nothing todo. Just finish polling.
-</span>  <span class='kw'>end</span>
+</span>    <span class='kw'>if</span> <span class='ivar'>@ready_state</span> <span class='op'>&lt;</span> <span class='const'><span class='object_link'><a href="#STATE_CLOSING-constant" title="Puppeteer::WebSocket::STATE_CLOSING (constant)">STATE_CLOSING</a></span></span>
+      <span class='id identifier rubyid_handle_on_close'>handle_on_close</span><span class='lparen'>(</span><span class='label'>reason:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Going Away</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>code:</span> <span class='int'>1001</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -415,14 +421,14 @@
       <pre class="lines">
 
 
-78
-79
-80
-81
-82</pre>
+85
+86
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span><span class='lparen'>(</span><span class='label'>code:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>reason:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@ready_state</span> <span class='op'>&gt;=</span> <span class='const'><span class='object_link'><a href="#STATE_CLOSING-constant" title="Puppeteer::WebSocket::STATE_CLOSING (constant)">STATE_CLOSING</a></span></span>
@@ -473,12 +479,12 @@
       <pre class="lines">
 
 
-89
-90
-91</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_close'>on_close</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@on_close</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
@@ -527,12 +533,12 @@
       <pre class="lines">
 
 
-94
-95
-96</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_error'>on_error</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@on_error</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
@@ -557,12 +563,12 @@
       <pre class="lines">
 
 
-98
-99
-100</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_message'>on_message</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@on_message</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
@@ -587,12 +593,12 @@
       <pre class="lines">
 
 
-84
-85
-86</pre>
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_open'>on_open</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@on_open</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
@@ -641,13 +647,13 @@
       <pre class="lines">
 
 
-73
-74
-75
-76</pre>
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/web_socket.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_send_text'>send_text</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@ready_state</span> <span class='op'>&gt;=</span> <span class='const'><span class='object_link'><a href="#STATE_CLOSING-constant" title="Puppeteer::WebSocket::STATE_CLOSING (constant)">STATE_CLOSING</a></span></span>
@@ -663,7 +669,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jul 19 16:03:40 2020 by
+  Generated on Fri Jul 24 13:17:51 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
