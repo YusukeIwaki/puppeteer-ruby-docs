@@ -238,6 +238,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wheel-instance_method" title="#wheel (instance method)">#<strong>wheel</strong>(delta_x: 0, delta_y: 0)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dispatches a `mousewheel` event.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -680,12 +704,99 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="wheel-instance_method">
+  
+    #<strong>wheel</strong>(delta_x: 0, delta_y: 0)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dispatches a `mousewheel` event.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>delta_x</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>0</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>delta_y</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>0</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/mouse.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wheel'>wheel</span><span class='lparen'>(</span><span class='label'>delta_x:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>delta_y:</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_send_message'>send_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Input.dispatchMouseEvent</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mouseWheel</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>x:</span> <span class='ivar'>@x</span><span class='comma'>,</span>
+    <span class='label'>y:</span> <span class='ivar'>@y</span><span class='comma'>,</span>
+    <span class='label'>deltaX:</span> <span class='id identifier rubyid_delta_x'>delta_x</span><span class='comma'>,</span>
+    <span class='label'>deltaY:</span> <span class='id identifier rubyid_delta_y'>delta_y</span><span class='comma'>,</span>
+    <span class='label'>modifiers:</span> <span class='ivar'>@keyboard</span><span class='period'>.</span><span class='id identifier rubyid_modifiers'>modifiers</span><span class='comma'>,</span>
+    <span class='label'>pointerType:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mouse</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Fri Jul 24 13:17:49 2020 by
+  Generated on Sat Jul 25 14:13:31 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>

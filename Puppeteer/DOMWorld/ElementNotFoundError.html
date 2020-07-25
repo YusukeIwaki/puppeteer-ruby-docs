@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Exception: Puppeteer::Browser::TargetNotExistError
+  Exception: Puppeteer::DOMWorld::ElementNotFoundError
   
     &mdash; Documentation by YARD 0.9.25
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Puppeteer::Browser::TargetNotExistError";
+  pathId = "Puppeteer::DOMWorld::ElementNotFoundError";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (T)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Browser.html" title="Puppeteer::Browser (class)">Browser</a></span></span>
+    <a href="../../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../DOMWorld.html" title="Puppeteer::DOMWorld (class)">DOMWorld</a></span></span>
      &raquo; 
-    <span class="title">TargetNotExistError</span>
+    <span class="title">ElementNotFoundError</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Exception: Puppeteer::Browser::TargetNotExistError
+      <div id="content"><h1>Exception: Puppeteer::DOMWorld::ElementNotFoundError
   
   
   
@@ -76,7 +76,7 @@
           
             <li class="next">StandardError</li>
           
-            <li class="next">Puppeteer::Browser::TargetNotExistError</li>
+            <li class="next">Puppeteer::DOMWorld::ElementNotFoundError</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -96,12 +96,42 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/puppeteer/browser.rb</dd>
+    <dd>lib/puppeteer/dom_world.rb</dd>
   </dl>
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>/**</p>
 
+<pre class="code ruby"><code class="ruby"> * @param {string} content
+ * @return {!Promise&lt;!HTMLElement&gt;}
+ */
+async function addStyleContent(content) {
+  const style = document.createElement(&#39;style&#39;);
+  style.type = &#39;text/css&#39;;
+  style.appendChild(document.createTextNode(content));
+  const promise = new Promise((res, rej) =&gt; {
+    style.onload = res;
+    style.onerror = rej;
+  });
+  document.head.appendChild(style);
+  await promise;
+  return style;
+}
+</code></pre>
+
+<p>}</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -119,7 +149,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>  &#x21d2; TargetNotExistError </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(selector)  &#x21d2; ElementNotFoundError </a>
     
 
     
@@ -136,7 +166,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of TargetNotExistError.</p>
+<p>A new instance of ElementNotFoundError.</p>
 </div></span>
   
 </li>
@@ -152,7 +182,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Puppeteer::Browser::TargetNotExistError (class)">TargetNotExistError</a></span></tt> 
+    #<strong>initialize</strong>(selector)  &#x21d2; <tt><span class='object_link'><a href="" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></tt> 
   
 
   
@@ -161,7 +191,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of TargetNotExistError.</p>
+<p>Returns a new instance of ElementNotFoundError.</p>
 
 
   </div>
@@ -175,15 +205,15 @@
       <pre class="lines">
 
 
-159
-160
-161</pre>
+318
+319
+320</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 159</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 318</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>target should exist before targetInfoChanged</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No node found for selector: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_selector'>selector</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -196,7 +226,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jul 25 14:13:31 2020 by
+  Generated on Sat Jul 25 14:13:32 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
