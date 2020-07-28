@@ -343,7 +343,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#press-instance_method" title="#press (instance method)">#<strong>press</strong>(key, delay: nil)  &#x21d2; Object </a>
+      <a href="#press-instance_method" title="#press (instance method)">#<strong>press</strong>(key, delay: nil, text: nil)  &#x21d2; Object </a>
     
 
     
@@ -822,7 +822,6 @@
       <pre class="lines">
 
 
-220
 221
 222
 223
@@ -835,10 +834,11 @@
 230
 231
 232
-233</pre>
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 221</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bounding_box'>bounding_box</span>
   <span class='id identifier rubyid_if_present'>if_present</span><span class='lparen'>(</span><span class='id identifier rubyid_box_model'>box_model</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_result_model'>result_model</span><span class='op'>|</span>
@@ -896,14 +896,14 @@
       <pre class="lines">
 
 
-236
 237
 238
 239
-240</pre>
+240
+241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 236</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 237</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_box_model'>box_model</span>
   <span class='id identifier rubyid_if_present'>if_present</span><span class='lparen'>(</span><span class='ivar'>@remote_object</span><span class='period'>.</span><span class='id identifier rubyid_box_model'>box_model</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_result'>result</span><span class='op'>|</span>
@@ -1183,7 +1183,7 @@
       <div class="method_details ">
   <h3 class="signature " id="press-instance_method">
   
-    #<strong>press</strong>(key, delay: nil)  &#x21d2; <tt>Object</tt> 
+    #<strong>press</strong>(key, delay: nil, text: nil)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1212,6 +1212,19 @@
   
     <li>
       
+        <span class='name'>text</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>delay</span>
       
       
@@ -1232,17 +1245,17 @@
       <pre class="lines">
 
 
-212
 213
 214
-215</pre>
+215
+216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 212</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 213</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_press'>press</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_press'>press</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>text:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_focus'>focus</span>
-  <span class='ivar'>@page</span><span class='period'>.</span><span class='id identifier rubyid_keyboard'>keyboard</span><span class='period'>.</span><span class='id identifier rubyid_press'>press</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='id identifier rubyid_delay'>delay</span><span class='rparen'>)</span>
+  <span class='ivar'>@page</span><span class='period'>.</span><span class='id identifier rubyid_keyboard'>keyboard</span><span class='period'>.</span><span class='id identifier rubyid_press'>press</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='id identifier rubyid_delay'>delay</span><span class='comma'>,</span> <span class='label'>text:</span> <span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1290,7 +1303,6 @@
       <pre class="lines">
 
 
-293
 294
 295
 296
@@ -1302,10 +1314,11 @@
 302
 303
 304
-305</pre>
+305
+306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 293</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 294</span>
 
 <span class='kw'>def</span> <span class='const'>S</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span>
@@ -1340,7 +1353,6 @@
       <pre class="lines">
 
 
-242
 243
 244
 245
@@ -1387,10 +1399,11 @@
 286
 287
 288
-289</pre>
+289
+290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 242</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 243</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_screenshot'>screenshot</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_needs_viewport_reset'>needs_viewport_reset</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -1672,7 +1685,6 @@
       <pre class="lines">
 
 
-329
 330
 331
 332
@@ -1681,10 +1693,11 @@
 335
 336
 337
-338</pre>
+338
+339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 329</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 330</span>
 
 <span class='kw'>def</span> <span class='const'>Seval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_element_handle'>element_handle</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#S-instance_method" title="Puppeteer::ElementHandle#S (method)">S</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -1742,7 +1755,6 @@
       <pre class="lines">
 
 
-309
 310
 311
 312
@@ -1750,10 +1762,11 @@
 314
 315
 316
-317</pre>
+317
+318</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 309</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 310</span>
 
 <span class='kw'>def</span> <span class='const'>SS</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handles'>handles</span> <span class='op'>=</span> <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span>
@@ -1834,7 +1847,6 @@
       <pre class="lines">
 
 
-346
 347
 348
 349
@@ -1843,10 +1855,11 @@
 352
 353
 354
-355</pre>
+355
+356</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 346</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 347</span>
 
 <span class='kw'>def</span> <span class='const'>SSeval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handles'>handles</span> <span class='op'>=</span> <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span>
@@ -1917,7 +1930,6 @@
       <pre class="lines">
 
 
-362
 363
 364
 365
@@ -1933,10 +1945,11 @@
 375
 376
 377
-378</pre>
+378
+379</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 362</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 363</span>
 
 <span class='kw'>def</span> <span class='const'>Sx</span><span class='lparen'>(</span><span class='id identifier rubyid_expression'>expression</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_fn'>fn</span> <span class='op'>=</span> <span class='heredoc_beg'>&lt;&lt;~JAVASCRIPT</span>
@@ -2180,7 +2193,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jul 28 00:43:50 2020 by
+  Generated on Tue Jul 28 02:14:17 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
