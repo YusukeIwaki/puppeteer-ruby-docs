@@ -717,6 +717,28 @@ function _(selectorOrXPath, isXPath, waitForVisible, waitForHidden) {
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#wait_for_function-instance_method" title="#wait_for_function (instance method)">#<strong>wait_for_function</strong>(page_function, args: [], polling: nil, timeout: nil)  &#x21d2; Puppeteer::JSHandle </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#wait_for_selector-instance_method" title="#wait_for_selector (instance method)">#<strong>wait_for_selector</strong>(selector, visible: nil, hidden: nil, timeout: nil)  &#x21d2; Object </a>
     
 
@@ -2263,12 +2285,12 @@ function _(selectorOrXPath, isXPath, waitForVisible, waitForHidden) {
       <pre class="lines">
 
 
-406
-407
-408</pre>
+426
+427
+428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 406</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 426</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_title'>title</span>
   <span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>() =&gt; document.title</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -2354,6 +2376,132 @@ function _(selectorOrXPath, isXPath, waitForVisible, waitForHidden) {
   <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#S-instance_method" title="Puppeteer::DOMWorld#S (method)">S</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_type_text'>type_text</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='id identifier rubyid_delay'>delay</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_dispose'>dispose</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wait_for_function-instance_method">
+  
+    #<strong>wait_for_function</strong>(page_function, args: [], polling: nil, timeout: nil)  &#x21d2; <tt><span class='object_link'><a href="JSHandle.html" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>page_function</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>args</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>[]</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>polling</span>
+      
+      
+        <span class='type'>(<tt>Integer|String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>timeout</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="JSHandle.html" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 410</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_function'>wait_for_function</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>polling:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_option_polling'>option_polling</span> <span class='op'>=</span> <span class='id identifier rubyid_polling'>polling</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>raf</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_option_timeout'>option_timeout</span> <span class='op'>=</span> <span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>||</span> <span class='ivar'>@timeout_settings</span><span class='period'>.</span><span class='id identifier rubyid_timeout'>timeout</span>
+
+  <span class='const'><span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WaitTask.html" title="Puppeteer::WaitTask (class)">WaitTask</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="WaitTask.html#initialize-instance_method" title="Puppeteer::WaitTask#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+    <span class='label'>dom_world:</span> <span class='kw'>self</span><span class='comma'>,</span>
+    <span class='label'>predicate_body:</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span>
+    <span class='label'>title:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>function</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>polling:</span> <span class='id identifier rubyid_option_polling'>option_polling</span><span class='comma'>,</span>
+    <span class='label'>timeout:</span> <span class='id identifier rubyid_option_timeout'>option_timeout</span><span class='comma'>,</span>
+    <span class='label'>args:</span> <span class='id identifier rubyid_args'>args</span><span class='comma'>,</span>
+  <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_await_promise'><span class='object_link'><a href="WaitTask.html#await_promise-instance_method" title="Puppeteer::WaitTask#await_promise (method)">await_promise</a></span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2571,7 +2719,7 @@ function _(selectorOrXPath, isXPath, waitForVisible, waitForHidden) {
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  2 07:59:32 2020 by
+  Generated on Thu Aug  6 19:00:49 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>

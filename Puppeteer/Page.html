@@ -1639,7 +1639,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#wait_for_function-instance_method" title="#wait_for_function (instance method)">#<strong>wait_for_function</strong>(page_function, options = {}, *args)  &#x21d2; !Promise&lt;!Puppeteer.JSHandle&gt; </a>
+      <a href="#wait_for_function-instance_method" title="#wait_for_function (instance method)">#<strong>wait_for_function</strong>(page_function, args: [], polling: nil, timeout: nil)  &#x21d2; Puppeteer::JSHandle </a>
     
 
     
@@ -1662,6 +1662,28 @@
   <span class="summary_signature">
     
       <a href="#wait_for_selector-instance_method" title="#wait_for_selector (instance method)">#<strong>wait_for_selector</strong>(selector, visible: nil, hidden: nil, timeout: nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wait_for_timeout-instance_method" title="#wait_for_timeout (instance method)">#<strong>wait_for_timeout</strong>(milliseconds)  &#x21d2; Object </a>
     
 
     
@@ -5895,7 +5917,7 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <div class="method_details ">
   <h3 class="signature " id="wait_for_function-instance_method">
   
-    #<strong>wait_for_function</strong>(page_function, options = {}, *args)  &#x21d2; <tt>!Promise&lt;!<span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span>.<span class='object_link'><a href="JSHandle.html" title="Puppeteer::JSHandle (class)">JSHandle</a></span>&gt;</tt> 
+    #<strong>wait_for_function</strong>(page_function, args: [], polling: nil, timeout: nil)  &#x21d2; <tt><span class='object_link'><a href="JSHandle.html" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span></tt> 
   
 
   
@@ -5913,24 +5935,11 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
   
     <li>
       
-        <span class='name'>pageFunction</span>
+        <span class='name'>page_function</span>
       
       
-        <span class='type'>(<tt>Function|string</tt>)</span>
+        <span class='type'>(<tt>String</tt>)</span>
       
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>options</span>
-      
-      
-        <span class='type'>(<tt>!{polling?: string|number, timeout?: number}=</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
       
       
     </li>
@@ -5940,8 +5949,36 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
         <span class='name'>args</span>
       
       
-        <span class='type'>(<tt>!Array&lt;*&gt;</tt>)</span>
+        <span class='type'>(<tt>Integer|Array</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>[]</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>polling</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>timeout</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
     </li>
@@ -5954,7 +5991,7 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
     <li>
       
       
-        <span class='type'>(<tt>!Promise&lt;!<span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span>.<span class='object_link'><a href="JSHandle.html" title="Puppeteer::JSHandle (class)">JSHandle</a></span>&gt;</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="JSHandle.html" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span></tt>)</span>
       
       
       
@@ -5968,15 +6005,15 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-1133
-1134
-1135</pre>
+1139
+1140
+1141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 1133</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 1139</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_function'>wait_for_function</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_function'>wait_for_function</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_function'>wait_for_function</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>polling:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_function'>wait_for_function</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='label'>polling:</span> <span class='id identifier rubyid_polling'>polling</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -6087,6 +6124,65 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="wait_for_timeout-instance_method">
+  
+    #<strong>wait_for_timeout</strong>(milliseconds)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>milliseconds</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the number of milliseconds to wait.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1120
+1121
+1122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 1120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_timeout'>wait_for_timeout</span><span class='lparen'>(</span><span class='id identifier rubyid_milliseconds'>milliseconds</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_timeout'>wait_for_timeout</span><span class='lparen'>(</span><span class='id identifier rubyid_milliseconds'>milliseconds</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="wait_for_xpath-instance_method">
   
     #<strong>wait_for_xpath</strong>(xpath, visible: nil, hidden: nil, timeout: nil)  &#x21d2; <tt>Object</tt> 
@@ -6174,12 +6270,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-1123
-1124
-1125</pre>
+1128
+1129
+1130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 1123</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 1128</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_xpath'>wait_for_xpath</span><span class='lparen'>(</span><span class='id identifier rubyid_xpath'>xpath</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_xpath'>wait_for_xpath</span><span class='lparen'>(</span><span class='id identifier rubyid_xpath'>xpath</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='id identifier rubyid_visible'>visible</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='id identifier rubyid_hidden'>hidden</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
@@ -6224,7 +6320,7 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  2 07:59:30 2020 by
+  Generated on Thu Aug  6 19:00:47 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
