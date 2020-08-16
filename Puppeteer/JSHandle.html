@@ -87,6 +87,11 @@
   
   
   
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="IfPresent.html" title="Puppeteer::IfPresent (module)">IfPresent</a></span></dd>
+  </dl>
+  
   
 
   
@@ -211,6 +216,28 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#[]-instance_method" title="#[] (instance method)">#<strong>[]</strong>(name)  &#x21d2; Puppeteer::JSHandle </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -416,9 +443,66 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#property-instance_method" title="#property (instance method)">#<strong>property</strong>(name)  &#x21d2; Puppeteer::JSHandle </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>getProperty(propertyName) in JavaScript.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="IfPresent.html" title="Puppeteer::IfPresent (module)">IfPresent</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="IfPresent.html#if_present-instance_method" title="Puppeteer::IfPresent#if_present (method)">#if_present</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -485,15 +569,15 @@
       <pre class="lines">
 
 
-29
 30
 31
 32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>context:</span><span class='comma'>,</span> <span class='label'>client:</span><span class='comma'>,</span> <span class='label'>remote_object:</span><span class='rparen'>)</span>
   <span class='ivar'>@context</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span>
@@ -539,12 +623,12 @@
       <pre class="lines">
 
 
-36
 37
-38</pre>
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_context'>context</span>
   <span class='ivar'>@context</span>
@@ -582,12 +666,12 @@
       <pre class="lines">
 
 
-36
 37
-38</pre>
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remote_object'>remote_object</span>
   <span class='ivar'>@remote_object</span>
@@ -654,7 +738,6 @@
       <pre class="lines">
 
 
-6
 7
 8
 9
@@ -672,10 +755,11 @@
 21
 22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>context:</span><span class='comma'>,</span> <span class='label'>remote_object:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_frame'>frame</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_frame'>frame</span>
@@ -708,7 +792,74 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="as_element-instance_method">
+  <h3 class="signature first" id="[]-instance_method">
+  
+    #<strong>[]</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_property'>property</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="as_element-instance_method">
   
     #<strong>as_element</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -722,12 +873,12 @@
       <pre class="lines">
 
 
-107
-108
-109</pre>
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_element'>as_element</span>
   <span class='kw'>nil</span>
@@ -752,15 +903,15 @@
       <pre class="lines">
 
 
-111
-112
-113
-114
-115
-116</pre>
+120
+121
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dispose'>dispose</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@disposed</span>
@@ -810,12 +961,12 @@
       <pre class="lines">
 
 
-118
-119
-120</pre>
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 127</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disposed?'>disposed?</span>
   <span class='ivar'>@disposed</span>
@@ -877,12 +1028,12 @@
       <pre class="lines">
 
 
-45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_execution_context'>execution_context</span><span class='period'>.</span><span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -955,12 +1106,12 @@
       <pre class="lines">
 
 
-54
 55
-56</pre>
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_execution_context'>execution_context</span><span class='period'>.</span><span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -1007,12 +1158,12 @@
       <pre class="lines">
 
 
-39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execution_context'>execution_context</span>
   <span class='ivar'>@context</span>
@@ -1037,15 +1188,6 @@
       <pre class="lines">
 
 
-89
-90
-91
-92
-93
-94
-95
-96
-97
 98
 99
 100
@@ -1053,10 +1195,19 @@
 102
 103
 104
-105</pre>
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_json_value'>json_value</span>
   <span class='comment'># original logic was:
@@ -1073,7 +1224,7 @@
 </span>  <span class='comment'>#
 </span>  <span class='comment'># However it would be better that RemoteObject is responsible for
 </span>  <span class='comment'># the logic `if (this._remoteObject.objectId) { ... }`.
-</span>  <span class='ivar'>@remote_object</span><span class='period'>.</span><span class='id identifier rubyid_evaluate_self'>evaluate_self</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='ivar'>@remote_object</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
+</span>  <span class='ivar'>@remote_object</span><span class='period'>.</span><span class='id identifier rubyid_evaluate_self'>evaluate_self</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>||</span> <span class='ivar'>@remote_object</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1119,19 +1270,19 @@
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87</pre>
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_properties'>properties</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@remote_object</span><span class='period'>.</span><span class='id identifier rubyid_properties'>properties</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1148,12 +1299,151 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="property-instance_method">
+  
+    #<strong>property</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>getProperty(propertyName) in JavaScript</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Puppeteer::JSHandle (class)">Puppeteer::JSHandle</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_property'>property</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_js'>js</span> <span class='op'>=</span> <span class='heredoc_beg'>&lt;&lt;~JAVASCRIPT</span>
+<span class='tstring_content'>  (object, propertyName) =&gt; {
+</span><span class='tstring_content'>    const result = {__proto__: null};
+</span><span class='tstring_content'>    result[propertyName] = object[propertyName];
+</span><span class='tstring_content'>    return result;
+</span><span class='tstring_content'>  }
+</span><span class='heredoc_end'>  JAVASCRIPT
+</span>  <span class='id identifier rubyid_object_handle'>object_handle</span> <span class='op'>=</span> <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_js'>js</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_properties'>properties</span> <span class='op'>=</span> <span class='id identifier rubyid_object_handle'>object_handle</span><span class='period'>.</span><span class='id identifier rubyid_properties'>properties</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_properties'>properties</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_object_handle'>object_handle</span><span class='period'>.</span><span class='id identifier rubyid_dispose'>dispose</span>
+  <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    #<strong>to_s</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/js_handle.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='comment'># original logic was:
+</span>  <span class='comment'>#   if (this._remoteObject.objectId) {
+</span>  <span class='comment'>#     const type =  this._remoteObject.subtype || this._remoteObject.type;
+</span>  <span class='comment'>#     return &#39;JSHandle@&#39; + type;
+</span>  <span class='comment'>#   }
+</span>  <span class='comment'>#   return &#39;JSHandle:&#39; + helper.valueFromRemoteObject(this._remoteObject);
+</span>  <span class='comment'>#
+</span>  <span class='comment'># However it would be better that RemoteObject is responsible for
+</span>  <span class='comment'># the logic `if (this._remoteObject.objectId) { ... }`.
+</span>  <span class='id identifier rubyid_if_present'>if_present</span><span class='lparen'>(</span><span class='ivar'>@remote_object</span><span class='period'>.</span><span class='id identifier rubyid_type_str'>type_str</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_type_str'>type_str</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>JSHandle@</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type_str'>type_str</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>JSHandle:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@remote_object</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>undefined</span><span class='tstring_end'>&#39;</span></span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Thu Aug  6 19:00:49 2020 by
+  Generated on Sun Aug 16 13:20:01 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
