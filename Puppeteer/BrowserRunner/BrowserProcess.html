@@ -109,6 +109,35 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#spawnargs-instance_method" title="#spawnargs (instance method)">#<strong>spawnargs</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute spawnargs.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#stderr-instance_method" title="#stderr (instance method)">#<strong>stderr</strong>  &#x21d2; Object </a>
     
 
@@ -283,15 +312,33 @@
 24
 25
 26
-27</pre>
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='comma'>,</span> <span class='id identifier rubyid_executable_path'>executable_path</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='ivar'>@spawnargs</span> <span class='op'>=</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_args'>args</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='lbracket'>[</span><span class='id identifier rubyid_executable_path'>executable_path</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_args'>args</span>
+    <span class='kw'>else</span>
+      <span class='lbracket'>[</span><span class='id identifier rubyid_executable_path'>executable_path</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+
   <span class='id identifier rubyid_stdin'>stdin</span><span class='comma'>,</span> <span class='ivar'>@stdout</span><span class='comma'>,</span> <span class='ivar'>@stderr</span><span class='comma'>,</span> <span class='ivar'>@thread</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_popen3'>popen3</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='comma'>,</span> <span class='id identifier rubyid_executable_path'>executable_path</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_stdin'>stdin</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
   <span class='ivar'>@pid</span> <span class='op'>=</span> <span class='ivar'>@thread</span><span class='period'>.</span><span class='id identifier rubyid_pid'>pid</span>
+<span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOENT</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_err'>err</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="LaunchError.html" title="Puppeteer::BrowserRunner::LaunchError (class)">LaunchError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LaunchError.html#initialize-instance_method" title="Puppeteer::BrowserRunner::LaunchError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -306,7 +353,50 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="stderr-instance_method">
+  <h3 class="signature first" id="spawnargs-instance_method">
+  
+    #<strong>spawnargs</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute spawnargs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_spawnargs'>spawnargs</span>
+  <span class='ivar'>@spawnargs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="stderr-instance_method">
   
     #<strong>stderr</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
   
@@ -331,12 +421,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stderr'>stderr</span>
   <span class='ivar'>@stderr</span>
@@ -374,12 +464,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stdout'>stdout</span>
   <span class='ivar'>@stdout</span>
@@ -411,13 +501,13 @@
       <pre class="lines">
 
 
-35
-36
-37
-38</pre>
+44
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dispose'>dispose</span>
   <span class='lbracket'>[</span><span class='ivar'>@stdout</span><span class='comma'>,</span> <span class='ivar'>@stderr</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_io'>io</span><span class='op'>|</span> <span class='id identifier rubyid_io'>io</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span> <span class='kw'>unless</span> <span class='id identifier rubyid_io'>io</span><span class='period'>.</span><span class='id identifier rubyid_closed?'>closed?</span> <span class='rbrace'>}</span>
@@ -443,14 +533,14 @@
       <pre class="lines">
 
 
-29
-30
-31
-32
-33</pre>
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kill'>kill</span>
   <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_kill'>kill</span><span class='lparen'>(</span><span class='symbol'>:KILL</span><span class='comma'>,</span> <span class='ivar'>@pid</span><span class='rparen'>)</span>
@@ -467,7 +557,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov 13 18:40:20 2020 by
+  Generated on Sat Nov 14 08:57:45 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>

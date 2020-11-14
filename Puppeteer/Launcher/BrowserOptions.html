@@ -261,14 +261,16 @@
 30
 31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/browser_options.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='ivar'>@ignore_https_errors</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:ignore_https_errors</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='kw'>false</span>
-  <span class='ivar'>@default_viewport</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:default_viewport</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'><span class='object_link'><a href="../../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Viewport.html" title="Puppeteer::Viewport (class)">Viewport</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Viewport.html#initialize-instance_method" title="Puppeteer::Viewport#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>width:</span> <span class='int'>800</span><span class='comma'>,</span> <span class='label'>height:</span> <span class='int'>600</span><span class='rparen'>)</span>
+  <span class='comment'># `default_viewport: nil` must be respected here.
+</span>  <span class='ivar'>@default_viewport</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:default_viewport</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:default_viewport</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='const'><span class='object_link'><a href="../../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Viewport.html" title="Puppeteer::Viewport (class)">Viewport</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Viewport.html#initialize-instance_method" title="Puppeteer::Viewport#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>width:</span> <span class='int'>800</span><span class='comma'>,</span> <span class='label'>height:</span> <span class='int'>600</span><span class='rparen'>)</span>
   <span class='ivar'>@slow_mo</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:slow_mo</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='int'>0</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -309,12 +311,12 @@
       <pre class="lines">
 
 
-35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/browser_options.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/browser_options.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_viewport'>default_viewport</span>
   <span class='ivar'>@default_viewport</span>
@@ -352,12 +354,12 @@
       <pre class="lines">
 
 
-35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/browser_options.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/browser_options.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_slow_mo'>slow_mo</span>
   <span class='ivar'>@slow_mo</span>
@@ -411,12 +413,12 @@
       <pre class="lines">
 
 
-37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/browser_options.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/browser_options.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ignore_https_errors?'>ignore_https_errors?</span>
   <span class='ivar'>@ignore_https_errors</span>
@@ -431,7 +433,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov 13 18:40:21 2020 by
+  Generated on Sat Nov 14 08:57:46 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Exception: Puppeteer::ElementHandle::ElementNotVisibleError
+  Exception: Puppeteer::BrowserRunner::LaunchError
   
     &mdash; Documentation by YARD 0.9.25
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Puppeteer::ElementHandle::ElementNotVisibleError";
+  pathId = "Puppeteer::BrowserRunner::LaunchError";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (E)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../ElementHandle.html" title="Puppeteer::ElementHandle (class)">ElementHandle</a></span></span>
+    <a href="../../_index.html">Index (L)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../BrowserRunner.html" title="Puppeteer::BrowserRunner (class)">BrowserRunner</a></span></span>
      &raquo; 
-    <span class="title">ElementNotVisibleError</span>
+    <span class="title">LaunchError</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Exception: Puppeteer::ElementHandle::ElementNotVisibleError
+      <div id="content"><h1>Exception: Puppeteer::BrowserRunner::LaunchError
   
   
   
@@ -76,7 +76,7 @@
           
             <li class="next">StandardError</li>
           
-            <li class="next">Puppeteer::ElementHandle::ElementNotVisibleError</li>
+            <li class="next">Puppeteer::BrowserRunner::LaunchError</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -96,7 +96,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/puppeteer/element_handle.rb</dd>
+    <dd>lib/puppeteer/browser_runner.rb</dd>
   </dl>
   
 </div>
@@ -119,7 +119,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>  &#x21d2; ElementNotVisibleError </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(reason)  &#x21d2; LaunchError </a>
     
 
     
@@ -136,7 +136,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of ElementNotVisibleError.</p>
+<p>A new instance of LaunchError.</p>
 </div></span>
   
 </li>
@@ -152,7 +152,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Puppeteer::ElementHandle::ElementNotVisibleError (class)">ElementNotVisibleError</a></span></tt> 
+    #<strong>initialize</strong>(reason)  &#x21d2; <tt><span class='object_link'><a href="" title="Puppeteer::BrowserRunner::LaunchError (class)">LaunchError</a></span></tt> 
   
 
   
@@ -161,7 +161,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of ElementNotVisibleError.</p>
+<p>Returns a new instance of LaunchError.</p>
 
 
   </div>
@@ -175,15 +175,15 @@
       <pre class="lines">
 
 
-77
-78
-79</pre>
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/element_handle.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 53</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Node is either not visible or not an HTMLElement</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_reason'>reason</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Failed to launch browser! </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_reason'>reason</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

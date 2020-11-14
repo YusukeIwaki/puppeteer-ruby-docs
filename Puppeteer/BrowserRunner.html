@@ -116,7 +116,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="BrowserRunner/BrowserProcess.html" title="Puppeteer::BrowserRunner::BrowserProcess (class)">BrowserProcess</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="BrowserRunner/BrowserProcess.html" title="Puppeteer::BrowserRunner::BrowserProcess (class)">BrowserProcess</a></span>, <span class='object_link'><a href="BrowserRunner/LaunchError.html" title="Puppeteer::BrowserRunner::LaunchError (class)">LaunchError</a></span>
     
   
 </p>
@@ -543,24 +543,24 @@
       <pre class="lines">
 
 
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122</pre>
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 123</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@closed</span>
@@ -619,24 +619,24 @@
       <pre class="lines">
 
 
-125
-126
-127
-128
-129
-130
-131
-132</pre>
+140
+141
+142
+143
+144
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 140</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kill'>kill</span>
-  <span class='kw'>unless</span> <span class='ivar'>@closed</span>
-    <span class='ivar'>@proc</span><span class='period'>.</span><span class='id identifier rubyid_kill'>kill</span>
-  <span class='kw'>end</span>
   <span class='kw'>if</span> <span class='ivar'>@temp_directory</span>
     <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='ivar'>@temp_directory</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='ivar'>@closed</span>
+    <span class='ivar'>@proc</span><span class='period'>.</span><span class='id identifier rubyid_kill'>kill</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -696,20 +696,20 @@
       <pre class="lines">
 
 
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147</pre>
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_setup_connection'>setup_connection</span><span class='lparen'>(</span><span class='label'>use_pipe:</span><span class='comma'>,</span> <span class='label'>timeout:</span><span class='comma'>,</span> <span class='label'>slow_mo:</span><span class='comma'>,</span> <span class='label'>preferred_revision:</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_use_pipe'>use_pipe</span>
@@ -766,21 +766,6 @@
       <pre class="lines">
 
 
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
 59
 60
 61
@@ -827,10 +812,25 @@
 102
 103
 104
-105</pre>
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser_runner.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span>
   <span class='label'>executable_path:</span> <span class='kw'>nil</span><span class='comma'>,</span>
@@ -904,7 +904,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov 13 18:40:20 2020 by
+  Generated on Sat Nov 14 08:57:45 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
