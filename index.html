@@ -129,6 +129,26 @@
 
 <p>More usage examples can be found <a href="https://github.com/YusukeIwaki/puppeteer-ruby-example">here</a></p>
 
+<h2 id="label-3Awhale-3A+Running+in+Docker">:whale: Running in Docker</h2>
+
+<p>Following packages are required.</p>
+<ul><li>
+<p>Google Chrome or Chromium</p>
+</li><li>
+<p>In Debian-based images, <code>google-chrome-stable</code></p>
+</li><li>
+<p>In Alpine-based images, <code>chromium</code></p>
+</li></ul>
+
+<p>Also, CJK font will be required for Chinese, Japanese, Korean sites.</p>
+
+<h3 id="label-References">References</h3>
+<ul><li>
+<p>Puppeteer official README: <a href="https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker">github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker</a></p>
+</li><li>
+<p>puppeteer-ruby example: <a href="https://github.com/YusukeIwaki/puppeteer-ruby-example/tree/master/docker_chromium">github.com/YusukeIwaki/puppeteer-ruby-example/tree/master/docker_chromium</a></p>
+</li></ul>
+
 <h2 id="label-3Abulb-3A+Collaboration+with+Selenium+or+Capybara">:bulb: Collaboration with Selenium or Capybara</h2>
 
 <p>It is really remarkable that we can use puppeteer functions in existing Selenium or Capybara codes, with a few configuration in advance.</p>
@@ -189,7 +209,7 @@ RSpec.describe &#39;hotel.testplanisphere.dev&#39;, type: :feature do
 </div></div>
 
       <div id="footer">
-  Generated on Sun Nov 15 00:43:08 2020 by
+  Generated on Sun Nov 15 14:16:29 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
