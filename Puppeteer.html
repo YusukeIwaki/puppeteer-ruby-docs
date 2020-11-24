@@ -1482,14 +1482,14 @@
       <pre class="lines">
 
 
-74
 75
 76
 77
-78</pre>
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>project_root:</span><span class='comma'>,</span> <span class='label'>preferred_revision:</span><span class='comma'>,</span> <span class='label'>is_puppeteer_core:</span><span class='rparen'>)</span>
   <span class='ivar'>@project_root</span> <span class='op'>=</span> <span class='id identifier rubyid_project_root'>project_root</span>
@@ -1553,7 +1553,6 @@
       <pre class="lines">
 
 
-57
 58
 59
 60
@@ -1565,10 +1564,11 @@
 66
 67
 68
-69</pre>
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_kwargs'>kwargs</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@puppeteer</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="" title="Puppeteer (class)">Puppeteer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Puppeteer#initialize (method)">new</a></span></span><span class='lparen'>(</span>
@@ -1713,7 +1713,6 @@
       <pre class="lines">
 
 
-156
 157
 158
 159
@@ -1739,10 +1738,11 @@
 179
 180
 181
-182</pre>
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 157</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span>
   <span class='label'>browser_ws_endpoint:</span> <span class='kw'>nil</span><span class='comma'>,</span>
@@ -1830,12 +1830,12 @@
       <pre class="lines">
 
 
-230
 231
-232</pre>
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 230</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_createBrowserFetcher'>createBrowserFetcher</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Puppeteer/BrowserFetcher.html" title="Puppeteer::BrowserFetcher (class)">BrowserFetcher</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Puppeteer/BrowserFetcher.html#initialize-instance_method" title="Puppeteer::BrowserFetcher#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@project_root</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -1938,7 +1938,6 @@
       <pre class="lines">
 
 
-218
 219
 220
 221
@@ -1946,10 +1945,11 @@
 223
 224
 225
-226</pre>
+226
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 218</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 219</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_args'>default_args</span><span class='lparen'>(</span><span class='label'>args:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>user_data_dir:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>devtools:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headless:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
@@ -2002,12 +2002,12 @@
       <pre class="lines">
 
 
-204
 205
-206</pre>
+206
+207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 204</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 205</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_devices'>devices</span>
   <span class='const'><span class='object_link'><a href="" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Puppeteer/Devices.html" title="Puppeteer::Devices (class)">Devices</a></span></span>
@@ -2054,12 +2054,12 @@
       <pre class="lines">
 
 
-185
 186
-187</pre>
+187
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 186</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_executable_path'>executable_path</span>
   <span class='id identifier rubyid_launcher'>launcher</span><span class='period'>.</span><span class='id identifier rubyid_executable_path'>executable_path</span>
@@ -2331,7 +2331,6 @@
       <pre class="lines">
 
 
-98
 99
 100
 101
@@ -2380,10 +2379,11 @@
 144
 145
 146
-147</pre>
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_launch'>launch</span><span class='lparen'>(</span>
   <span class='label'>product:</span> <span class='kw'>nil</span><span class='comma'>,</span>
@@ -2477,12 +2477,12 @@
       <pre class="lines">
 
 
-199
 200
-201</pre>
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer.rb', line 200</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product'>product</span>
   <span class='id identifier rubyid_launcher'>launcher</span><span class='period'>.</span><span class='id identifier rubyid_product'>product</span>
@@ -2497,7 +2497,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Nov 15 14:16:29 2020 by
+  Generated on Tue Nov 24 16:36:53 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>

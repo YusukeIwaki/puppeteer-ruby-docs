@@ -115,27 +115,6 @@
   
 </p>
 
-  
-    <h2>
-      Constant Summary
-      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
-    </h2>
-
-    <dl class="constants">
-      
-        <dt id="EVENT_MAPPINGS-constant" class="">EVENT_MAPPINGS =
-          
-        </dt>
-        <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='label'>disconnected:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.Disconnected</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-  <span class='label'>targetcreated:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.TargetCreated</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-  <span class='label'>targetchanged:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.TargetChanged</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-  <span class='label'>targetdestroyed:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.TargetDestroyed</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-<span class='rbrace'>}</span></pre></dd>
-      
-    </dl>
-  
-
 
 
 
@@ -887,12 +866,12 @@
     <span class='ivar'>@contexts</span><span class='lbracket'>[</span><span class='id identifier rubyid_context_id'>context_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="BrowserContext.html" title="Puppeteer::BrowserContext (class)">BrowserContext</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="BrowserContext.html#initialize-instance_method" title="Puppeteer::BrowserContext#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@connection</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_context_id'>context_id</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
   <span class='ivar'>@targets</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Connection.Disconnected</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_emit_event'>emit_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.Disconnected</span><span class='tstring_end'>&#39;</span></span>
+  <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../ConnectionEmittedEvents.html" title="ConnectionEmittedEvents (module)">ConnectionEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>Disconnected</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_emit_event'>emit_event</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>Disconnected</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-  <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target.targetCreated</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:handle_target_created</span><span class='rparen'>)</span>
-  <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target.targetDestroyed</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:handle_target_destroyed</span><span class='rparen'>)</span>
-  <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target.targetInfoChanged</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:handle_target_info_changed</span><span class='rparen'>)</span>
+  <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target.targetCreated</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:handle_target_created</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target.targetDestroyed</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:handle_target_destroyed</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target.targetInfoChanged</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:handle_target_info_changed</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1085,10 +1064,10 @@
       <pre class="lines">
 
 
-254</pre>
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 254</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 247</span>
 
 <span class='id identifier rubyid_define_async_method'>define_async_method</span> <span class='symbol'>:async_wait_for_target</span></pre>
     </td>
@@ -1111,12 +1090,12 @@
       <pre class="lines">
 
 
-94
-95
-96</pre>
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_browser_contexts'>browser_contexts</span>
   <span class='lbracket'>[</span><span class='ivar'>@default_context</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_concat'>concat</span><span class='lparen'>(</span><span class='ivar'>@contexts</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
@@ -1141,13 +1120,13 @@
       <pre class="lines">
 
 
-271
-272
-273
-274</pre>
+264
+265
+266
+267</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 271</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 264</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
   <span class='ivar'>@close_callback</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span>
@@ -1195,12 +1174,12 @@
       <pre class="lines">
 
 
-280
-281
-282</pre>
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 280</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 273</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_connected?'>connected?</span>
   <span class='op'>!</span><span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_closed?'>closed?</span>
@@ -1247,14 +1226,14 @@
       <pre class="lines">
 
 
-88
-89
-90
-91
-92</pre>
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_incognito_browser_context'>create_incognito_browser_context</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_send_message'>send_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target.createBrowserContext</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -1318,20 +1297,20 @@
       <pre class="lines">
 
 
+181
+182
+183
+184
+185
+186
+187
 188
 189
 190
-191
-192
-193
-194
-195
-196
-197
-198</pre>
+191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 188</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 181</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_page_in_context'>create_page_in_context</span><span class='lparen'>(</span><span class='id identifier rubyid_context_id'>context_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_create_target_params'>create_target_params</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>about:blank</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span>
@@ -1386,12 +1365,12 @@
       <pre class="lines">
 
 
-99
-100
-101</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_browser_context'>default_browser_context</span>
   <span class='ivar'>@default_context</span>
@@ -1416,12 +1395,12 @@
       <pre class="lines">
 
 
-276
-277
-278</pre>
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 276</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 269</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disconnect'>disconnect</span>
   <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_dispose'>dispose</span>
@@ -1470,13 +1449,13 @@
       <pre class="lines">
 
 
-104
-105
-106
-107</pre>
+97
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dispose_context'>dispose_context</span><span class='lparen'>(</span><span class='id identifier rubyid_context_id'>context_id</span><span class='rparen'>)</span>
   <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_send_message'>send_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target.disposeBrowserContext</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>browserContextId:</span> <span class='id identifier rubyid_context_id'>context_id</span><span class='rparen'>)</span>
@@ -1526,6 +1505,13 @@
       <pre class="lines">
 
 
+109
+110
+111
+112
+113
+114
+115
 116
 117
 118
@@ -1546,17 +1532,10 @@
 133
 134
 135
-136
-137
-138
-139
-140
-141
-142
-143</pre>
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_target_created'>handle_target_created</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_target_info'>target_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Target.html" title="Puppeteer::Target (class)">Target</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Target/TargetInfo.html" title="Puppeteer::Target::TargetInfo (class)">TargetInfo</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Target/TargetInfo.html#initialize-instance_method" title="Puppeteer::Target::TargetInfo#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>targetInfo</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -1582,8 +1561,8 @@
   <span class='comment'>#   assert(!this._targets.has(event.targetInfo.targetId), &#39;Target should not exist before targetCreated&#39;);
 </span>  <span class='ivar'>@targets</span><span class='lbracket'>[</span><span class='id identifier rubyid_target_info'>target_info</span><span class='period'>.</span><span class='id identifier rubyid_target_id'>target_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_target'>target</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_await'><span class='object_link'><a href="ConcurrentRubyUtils.html#await-instance_method" title="Puppeteer::ConcurrentRubyUtils#await (method)">await</a></span></span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_initialized_promise'>initialized_promise</span>
-    <span class='id identifier rubyid_emit_event'>emit_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.TargetCreated</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span>
-    <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_emit_event'>emit_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.BrowserContext.TargetCreated</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span>
+    <span class='id identifier rubyid_emit_event'>emit_event</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>TargetCreated</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_emit_event'>emit_event</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../BrowserContextEmittedEvents.html" title="BrowserContextEmittedEvents (module)">BrowserContextEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>TargetCreated</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1630,20 +1609,20 @@
       <pre class="lines">
 
 
+139
+140
+141
+142
+143
+144
+145
 146
 147
 148
-149
-150
-151
-152
-153
-154
-155
-156</pre>
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_target_destroyed'>handle_target_destroyed</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_target_id'>target_id</span> <span class='op'>=</span> <span class='id identifier rubyid_event'>event</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>targetId</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -1652,8 +1631,8 @@
   <span class='ivar'>@targets</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_target_id'>target_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_closed_callback'>closed_callback</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_await'><span class='object_link'><a href="ConcurrentRubyUtils.html#await-instance_method" title="Puppeteer::ConcurrentRubyUtils#await (method)">await</a></span></span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_initialized_promise'>initialized_promise</span>
-    <span class='id identifier rubyid_emit_event'>emit_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.TargetDestroyed</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span>
-    <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_browser_context'>browser_context</span><span class='period'>.</span><span class='id identifier rubyid_emit_event'>emit_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.BrowserContext.TargetDestroyed</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span>
+    <span class='id identifier rubyid_emit_event'>emit_event</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>TargetDestroyed</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_browser_context'>browser_context</span><span class='period'>.</span><span class='id identifier rubyid_emit_event'>emit_event</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../BrowserContextEmittedEvents.html" title="BrowserContextEmittedEvents (module)">BrowserContextEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>TargetDestroyed</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1700,20 +1679,20 @@
       <pre class="lines">
 
 
+158
+159
+160
+161
+162
+163
+164
 165
 166
 167
-168
-169
-170
-171
-172
-173
-174
-175</pre>
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 158</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_target_info_changed'>handle_target_info_changed</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_target_info'>target_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Target.html" title="Puppeteer::Target (class)">Target</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Target/TargetInfo.html" title="Puppeteer::Target::TargetInfo (class)">TargetInfo</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Target/TargetInfo.html#initialize-instance_method" title="Puppeteer::Target::TargetInfo#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>targetInfo</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -1722,8 +1701,8 @@
   <span class='id identifier rubyid_was_initialized'>was_initialized</span> <span class='op'>=</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_initialized?'>initialized?</span>
   <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_handle_target_info_changed'>handle_target_info_changed</span><span class='lparen'>(</span><span class='id identifier rubyid_target_info'>target_info</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_was_initialized'>was_initialized</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_previous_url'>previous_url</span> <span class='op'>!=</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span>
-    <span class='id identifier rubyid_emit_event'>emit_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.TargetChanged</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span>
-    <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_browser_context'>browser_context</span><span class='period'>.</span><span class='id identifier rubyid_emit_event'>emit_event</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.BrowserContext.TargetChanged</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span>
+    <span class='id identifier rubyid_emit_event'>emit_event</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>TargetChanged</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_browser_context'>browser_context</span><span class='period'>.</span><span class='id identifier rubyid_emit_event'>emit_event</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../BrowserContextEmittedEvents.html" title="BrowserContextEmittedEvents (module)">BrowserContextEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>TargetChanged</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1746,12 +1725,12 @@
       <pre class="lines">
 
 
-182
-183
-184</pre>
+175
+176
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_page'>new_page</span>
   <span class='ivar'>@default_context</span><span class='period'>.</span><span class='id identifier rubyid_new_page'>new_page</span>
@@ -1805,23 +1784,23 @@
       <pre class="lines">
 
 
-65
-66
-67
-68
-69
-70
-71</pre>
+58
+59
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="#EVENT_MAPPINGS-constant" title="Puppeteer::Browser::EVENT_MAPPINGS (constant)">EVENT_MAPPINGS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unknown event name: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_event_name'>event_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>. Known events are </span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#EVENT_MAPPINGS-constant" title="Puppeteer::Browser::EVENT_MAPPINGS (constant)">EVENT_MAPPINGS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unknown event name: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_event_name'>event_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>. Known events are </span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_add_event_listener'>add_event_listener</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#EVENT_MAPPINGS-constant" title="Puppeteer::Browser::EVENT_MAPPINGS (constant)">EVENT_MAPPINGS</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1867,23 +1846,23 @@
       <pre class="lines">
 
 
-74
-75
-76
-77
-78
-79
-80</pre>
+67
+68
+69
+70
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_once'>once</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="#EVENT_MAPPINGS-constant" title="Puppeteer::Browser::EVENT_MAPPINGS (constant)">EVENT_MAPPINGS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unknown event name: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_event_name'>event_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>. Known events are </span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#EVENT_MAPPINGS-constant" title="Puppeteer::Browser::EVENT_MAPPINGS (constant)">EVENT_MAPPINGS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unknown event name: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_event_name'>event_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>. Known events are </span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_observe_first'>observe_first</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#EVENT_MAPPINGS-constant" title="Puppeteer::Browser::EVENT_MAPPINGS (constant)">EVENT_MAPPINGS</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1927,12 +1906,12 @@
       <pre class="lines">
 
 
-257
-258
-259</pre>
+250
+251
+252</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 257</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 250</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pages'>pages</span>
   <span class='id identifier rubyid_browser_contexts'>browser_contexts</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:pages</span><span class='rparen'>)</span>
@@ -1979,12 +1958,12 @@
       <pre class="lines">
 
 
-83
-84
-85</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='ivar'>@process</span>
@@ -2031,12 +2010,12 @@
       <pre class="lines">
 
 
-207
-208
-209</pre>
+200
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 207</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 200</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_target'>target</span>
   <span class='id identifier rubyid_targets'>targets</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_target'>target</span><span class='op'>|</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>browser</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span>
@@ -2083,12 +2062,12 @@
       <pre class="lines">
 
 
-201
-202
-203</pre>
+194
+195
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 194</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_targets'>targets</span>
   <span class='ivar'>@targets</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_target'>target</span><span class='op'>|</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_initialized?'>initialized?</span> <span class='rbrace'>}</span>
@@ -2135,12 +2114,12 @@
       <pre class="lines">
 
 
-267
-268
-269</pre>
+260
+261
+262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 267</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 260</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_agent'>user_agent</span>
   <span class='id identifier rubyid_get_version'>get_version</span><span class='period'>.</span><span class='id identifier rubyid_user_agent'>user_agent</span>
@@ -2187,12 +2166,12 @@
       <pre class="lines">
 
 
-262
-263
-264</pre>
+255
+256
+257</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 255</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='id identifier rubyid_get_version'>get_version</span><span class='period'>.</span><span class='id identifier rubyid_product'>product</span>
@@ -2259,6 +2238,13 @@
       <pre class="lines">
 
 
+211
+212
+213
+214
+215
+216
+217
 218
 219
 220
@@ -2283,17 +2269,10 @@
 239
 240
 241
-242
-243
-244
-245
-246
-247
-248
-249</pre>
+242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 218</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 211</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_target'>wait_for_target</span><span class='lparen'>(</span><span class='label'>predicate:</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_timeout_in_sec'>timeout_in_sec</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>||</span> <span class='int'>30000</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>/</span> <span class='float'>1000.0</span>
@@ -2302,12 +2281,12 @@
 
   <span class='id identifier rubyid_event_listening_ids'>event_listening_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_target_promise'>target_promise</span> <span class='op'>=</span> <span class='id identifier rubyid_resolvable_future'><span class='object_link'><a href="ConcurrentRubyUtils.html#resolvable_future-instance_method" title="Puppeteer::ConcurrentRubyUtils#resolvable_future (method)">resolvable_future</a></span></span>
-  <span class='id identifier rubyid_event_listening_ids'>event_listening_ids</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_add_event_listener'>add_event_listener</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.TargetCreated</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_target'>target</span><span class='op'>|</span>
+  <span class='id identifier rubyid_event_listening_ids'>event_listening_ids</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_add_event_listener'>add_event_listener</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>TargetCreated</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_target'>target</span><span class='op'>|</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_predicate'>predicate</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_target_promise'>target_promise</span><span class='period'>.</span><span class='id identifier rubyid_fulfill'>fulfill</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_event_listening_ids'>event_listening_ids</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_add_event_listener'>add_event_listener</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Events.Browser.TargetChanged</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_target'>target</span><span class='op'>|</span>
+  <span class='id identifier rubyid_event_listening_ids'>event_listening_ids</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_add_event_listener'>add_event_listener</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../BrowserEmittedEvents.html" title="BrowserEmittedEvents (module)">BrowserEmittedEvents</a></span></span><span class='op'>::</span><span class='const'>TargetChanged</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_target'>target</span><span class='op'>|</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_predicate'>predicate</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_target_promise'>target_promise</span><span class='period'>.</span><span class='id identifier rubyid_fulfill'>fulfill</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
@@ -2369,12 +2348,12 @@
       <pre class="lines">
 
 
-178
-179
-180</pre>
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/browser.rb', line 171</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ws_endpoint'>ws_endpoint</span>
   <span class='ivar'>@connection</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span>
@@ -2389,7 +2368,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Nov 15 14:16:30 2020 by
+  Generated on Tue Nov 24 16:36:54 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
