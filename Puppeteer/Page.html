@@ -112,7 +112,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Page/FileChooserTimeoutError.html" title="Puppeteer::Page::FileChooserTimeoutError (class)">FileChooserTimeoutError</a></span>, <span class='object_link'><a href="Page/PDFOptions.html" title="Puppeteer::Page::PDFOptions (class)">PDFOptions</a></span>, <span class='object_link'><a href="Page/PrintToPdfIsNotImplementedError.html" title="Puppeteer::Page::PrintToPdfIsNotImplementedError (class)">PrintToPdfIsNotImplementedError</a></span>, <span class='object_link'><a href="Page/ProtocolStreamReader.html" title="Puppeteer::Page::ProtocolStreamReader (class)">ProtocolStreamReader</a></span>, <span class='object_link'><a href="Page/ScreenshotOptions.html" title="Puppeteer::Page::ScreenshotOptions (class)">ScreenshotOptions</a></span>, <span class='object_link'><a href="Page/ScriptTag.html" title="Puppeteer::Page::ScriptTag (class)">ScriptTag</a></span>, <span class='object_link'><a href="Page/StyleTag.html" title="Puppeteer::Page::StyleTag (class)">StyleTag</a></span>, <span class='object_link'><a href="Page/TargetCrashedError.html" title="Puppeteer::Page::TargetCrashedError (class)">TargetCrashedError</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Page/FileChooserTimeoutError.html" title="Puppeteer::Page::FileChooserTimeoutError (class)">FileChooserTimeoutError</a></span>, <span class='object_link'><a href="Page/PDFOptions.html" title="Puppeteer::Page::PDFOptions (class)">PDFOptions</a></span>, <span class='object_link'><a href="Page/PageError.html" title="Puppeteer::Page::PageError (class)">PageError</a></span>, <span class='object_link'><a href="Page/PrintToPdfIsNotImplementedError.html" title="Puppeteer::Page::PrintToPdfIsNotImplementedError (class)">PrintToPdfIsNotImplementedError</a></span>, <span class='object_link'><a href="Page/ProtocolStreamReader.html" title="Puppeteer::Page::ProtocolStreamReader (class)">ProtocolStreamReader</a></span>, <span class='object_link'><a href="Page/ScreenshotOptions.html" title="Puppeteer::Page::ScreenshotOptions (class)">ScreenshotOptions</a></span>, <span class='object_link'><a href="Page/ScriptTag.html" title="Puppeteer::Page::ScriptTag (class)">ScriptTag</a></span>, <span class='object_link'><a href="Page/StyleTag.html" title="Puppeteer::Page::StyleTag (class)">StyleTag</a></span>, <span class='object_link'><a href="Page/TargetCrashedError.html" title="Puppeteer::Page::TargetCrashedError (class)">TargetCrashedError</a></span>
     
   
 </p>
@@ -202,7 +202,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>/**  * @param number, latitude: number, accuracy: (number|undefined)} options  */ async setGeolocation(options) {   const { longitude, latitude, accuracy = 0} = options;   if (longitude &lt; -180 || longitude &gt; 180)     throw new Error(`Invalid longitude “$longitude”: precondition -180 &lt;= LONGITUDE &lt;= 180 failed.`);   if (latitude &lt; -90 || latitude &gt; 90)     throw new Error(`Invalid latitude “$latitude”: precondition -90 &lt;= LATITUDE &lt;= 90 failed.`);   if (accuracy &lt; 0)     throw new Error(`Invalid accuracy “$accuracy”: precondition 0 &lt;= ACCURACY failed.`);   await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, accuracy); }.</p>
+<p>Returns the value of attribute javascript_enabled.</p>
 </div></span>
   
 </li>
@@ -260,7 +260,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>/**  * @param number, latitude: number, accuracy: (number|undefined)} options  */ async setGeolocation(options) {   const { longitude, latitude, accuracy = 0} = options;   if (longitude &lt; -180 || longitude &gt; 180)     throw new Error(`Invalid longitude “$longitude”: precondition -180 &lt;= LONGITUDE &lt;= 180 failed.`);   if (latitude &lt; -90 || latitude &gt; 90)     throw new Error(`Invalid latitude “$latitude”: precondition -90 &lt;= LATITUDE &lt;= 90 failed.`);   if (accuracy &lt; 0)     throw new Error(`Invalid accuracy “$accuracy”: precondition 0 &lt;= ACCURACY failed.`);   await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, accuracy); }.</p>
+<p>Returns the value of attribute target.</p>
 </div></span>
   
 </li>
@@ -900,6 +900,28 @@
   <span class="summary_signature">
     
       <a href="#frames-instance_method" title="#frames (instance method)">#<strong>frames</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#geolocation=-instance_method" title="#geolocation= (instance method)">#<strong>geolocation=</strong>(geolocation)  &#x21d2; Object </a>
     
 
     
@@ -1895,7 +1917,11 @@
 117
 118
 119
-120</pre>
+120
+121
+122
+123
+124</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 31</span>
@@ -1976,9 +2002,13 @@
 </span>  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Page.javascriptDialogOpening</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_event'>event</span><span class='op'>|</span>
     <span class='id identifier rubyid_handle_dialog_opening'>handle_dialog_opening</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-  <span class='comment'># client.on(&#39;Runtime.exceptionThrown&#39;, exception =&gt; this._handleException(exception.exceptionDetails));
-</span>  <span class='comment'># client.on(&#39;Inspector.targetCrashed&#39;, event =&gt; this._onTargetCrashed());
-</span>  <span class='comment'># client.on(&#39;Performance.metrics&#39;, event =&gt; this._emitMetrics(event));
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Runtime.exceptionThrown</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_exception'>exception</span><span class='op'>|</span>
+    <span class='id identifier rubyid_handle_exception'>handle_exception</span><span class='lparen'>(</span><span class='id identifier rubyid_exception'>exception</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>exceptionDetails</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Inspector.targetCrashed</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_event'>event</span><span class='op'>|</span>
+    <span class='id identifier rubyid_handle_target_crashed'>handle_target_crashed</span>
+  <span class='kw'>end</span>
+  <span class='comment'># client.on(&#39;Performance.metrics&#39;, event =&gt; this._emitMetrics(event));
 </span>  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_on_event'>on_event</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Log.entryAdded</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_event'>event</span><span class='op'>|</span>
     <span class='id identifier rubyid_handle_log_entry_added'>handle_log_entry_added</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -2028,12 +2058,12 @@
       <pre class="lines">
 
 
-250
-251
-252</pre>
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 250</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_accessibility'>accessibility</span>
   <span class='ivar'>@accessibility</span>
@@ -2071,12 +2101,12 @@
       <pre class="lines">
 
 
-250
-251
-252</pre>
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 250</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_coverage'>coverage</span>
   <span class='ivar'>@coverage</span>
@@ -2100,24 +2130,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>/**</p>
-
-<pre class="code ruby"><code class="ruby">* @param {!{longitude: number, latitude: number, accuracy: (number|undefined)}} options
-*/
-</code></pre>
-
-<p>async setGeolocation(options) 
-<pre class="code ruby"><code class="ruby">const { longitude, latitude, accuracy = 0 = options;
-if (longitude &lt; -180 || longitude &gt; 180)
-  throw new Error(`Invalid longitude &quot;$longitude&quot;: precondition -180 &lt;= LONGITUDE &lt;= 180 failed.`);
-if (latitude &lt; -90 || latitude &gt; 90)
-  throw new Error(`Invalid latitude &quot;$latitude&quot;: precondition -90 &lt;= LATITUDE &lt;= 90 failed.`);
-if (accuracy &lt; 0)
-  throw new Error(`Invalid accuracy &quot;$accuracy&quot;: precondition 0 &lt;= ACCURACY failed.`);
-await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, accuracy);
-</code></pre>
-
-<p>}</p>
+<p>Returns the value of attribute javascript_enabled.</p>
 
 
   </div>
@@ -2131,12 +2144,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-207
-208
-209</pre>
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 207</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_javascript_enabled'>javascript_enabled</span>
   <span class='ivar'>@javascript_enabled</span>
@@ -2203,24 +2216,7 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>/**</p>
-
-<pre class="code ruby"><code class="ruby">* @param {!{longitude: number, latitude: number, accuracy: (number|undefined)}} options
-*/
-</code></pre>
-
-<p>async setGeolocation(options) 
-<pre class="code ruby"><code class="ruby">const { longitude, latitude, accuracy = 0 = options;
-if (longitude &lt; -180 || longitude &gt; 180)
-  throw new Error(`Invalid longitude &quot;$longitude&quot;: precondition -180 &lt;= LONGITUDE &lt;= 180 failed.`);
-if (latitude &lt; -90 || latitude &gt; 90)
-  throw new Error(`Invalid latitude &quot;$latitude&quot;: precondition -90 &lt;= LATITUDE &lt;= 90 failed.`);
-if (accuracy &lt; 0)
-  throw new Error(`Invalid accuracy &quot;$accuracy&quot;: precondition 0 &lt;= ACCURACY failed.`);
-await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, accuracy);
-</code></pre>
-
-<p>}</p>
+<p>Returns the value of attribute target.</p>
 
 
   </div>
@@ -2234,12 +2230,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-207
-208
-209</pre>
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 207</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_target'>target</span>
   <span class='ivar'>@target</span>
@@ -2277,12 +2273,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-250
-251
-252</pre>
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 250</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_touch_screen'>touch_screen</span>
   <span class='ivar'>@touch_screen</span>
@@ -2320,12 +2316,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-859
-860
-861</pre>
+853
+854
+855</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 859</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 853</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_viewport'>viewport</span>
   <span class='ivar'>@viewport</span>
@@ -2521,12 +2517,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-404
-405
-406</pre>
+399
+400
+401</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 404</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 399</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_script_tag'>add_script_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_script_tag'>script_tag</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_add_script_tag'>add_script_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_script_tag'>script_tag</span><span class='rparen'>)</span>
@@ -2588,12 +2584,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-420
-421
-422</pre>
+415
+416
+417</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 420</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 415</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_style_tag'>add_style_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_style_tag'>style_tag</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_add_style_tag'>add_style_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_style_tag'>style_tag</span><span class='rparen'>)</span>
@@ -2662,10 +2658,10 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-676</pre>
+670</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 676</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 670</span>
 
 <span class='id identifier rubyid_define_async_method'>define_async_method</span> <span class='symbol'>:async_wait_for_navigation</span></pre>
     </td>
@@ -2744,10 +2740,10 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-746</pre>
+740</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 746</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 740</span>
 
 <span class='id identifier rubyid_define_async_method'>define_async_method</span> <span class='symbol'>:async_wait_for_request</span></pre>
     </td>
@@ -2814,10 +2810,10 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-772</pre>
+766</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 772</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 766</span>
 
 <span class='id identifier rubyid_define_async_method'>define_async_method</span> <span class='symbol'>:async_wait_for_response</span></pre>
     </td>
@@ -2879,12 +2875,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-458
-459
-460</pre>
+453
+454
+455</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 458</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 453</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_authenticate'>authenticate</span><span class='lparen'>(</span><span class='label'>username:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>password:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@frame_manager</span><span class='period'>.</span><span class='id identifier rubyid_network_manager'>network_manager</span><span class='period'>.</span><span class='id identifier rubyid_authenticate'>authenticate</span><span class='lparen'>(</span><span class='label'>username:</span> <span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='label'>password:</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
@@ -2909,12 +2905,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-209
-210
-211</pre>
+204
+205
+206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 209</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_browser'>browser</span>
   <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_browser'>browser</span>
@@ -2939,12 +2935,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-213
-214
-215</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_browser_context'>browser_context</span>
   <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_browser_context'>browser_context</span>
@@ -2993,12 +2989,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-812
-813
-814</pre>
+806
+807
+808</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 812</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 806</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bypass_csp='>bypass_csp=</span><span class='lparen'>(</span><span class='id identifier rubyid_enabled'>enabled</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_send_message'>send_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Page.setBypassCSP</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>enabled:</span> <span class='id identifier rubyid_enabled'>enabled</span><span class='rparen'>)</span>
@@ -3047,12 +3043,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-880
-881
-882</pre>
+874
+875
+876</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 880</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 874</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cache_enabled='>cache_enabled=</span><span class='lparen'>(</span><span class='id identifier rubyid_enabled'>enabled</span><span class='rparen'>)</span>
   <span class='ivar'>@frame_manager</span><span class='period'>.</span><span class='id identifier rubyid_network_manager'>network_manager</span><span class='period'>.</span><span class='id identifier rubyid_cache_enabled'>cache_enabled</span> <span class='op'>=</span> <span class='id identifier rubyid_enabled'>enabled</span>
@@ -3201,6 +3197,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
+1009
+1010
+1011
+1012
+1013
+1014
 1015
 1016
 1017
@@ -3215,7 +3217,7 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
 1026</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 1015</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 1009</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span><span class='lparen'>(</span><span class='label'>run_before_unload:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_connection'>connection</span>
@@ -3227,6 +3229,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
   <span class='kw'>else</span>
     <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_send_message'>send_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Target.closeTarget</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>targetId:</span> <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_target_id'>target_id</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_await'><span class='object_link'><a href="ConcurrentRubyUtils.html#await-instance_method" title="Puppeteer::ConcurrentRubyUtils#await (method)">await</a></span></span> <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_is_closed_promise'>is_closed_promise</span>
+
+    <span class='comment'># @closed sometimes remains false, so wait for @closed = true with 100ms timeout.
+</span>    <span class='int'>25</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+      <span class='kw'>break</span> <span class='kw'>if</span> <span class='ivar'>@closed</span>
+      <span class='id identifier rubyid_sleep'>sleep</span> <span class='float'>0.004</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -3323,12 +3331,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-634
-635
-636</pre>
+628
+629
+630</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 634</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 628</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content'>content</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span>
@@ -3377,12 +3385,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-646
-647
-648</pre>
+640
+641
+642</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 646</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 640</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content='>content=</span><span class='lparen'>(</span><span class='id identifier rubyid_html'>html</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_set_content'>set_content</span><span class='lparen'>(</span><span class='id identifier rubyid_html'>html</span><span class='rparen'>)</span>
@@ -3431,12 +3439,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-276
-277
-278</pre>
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 276</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 271</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_navigation_timeout='>default_navigation_timeout=</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
   <span class='ivar'>@timeout_settings</span><span class='period'>.</span><span class='id identifier rubyid_default_navigation_timeout'>default_navigation_timeout</span> <span class='op'>=</span> <span class='id identifier rubyid_timeout'>timeout</span>
@@ -3485,12 +3493,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-281
-282
-283</pre>
+276
+277
+278</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 281</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 276</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_timeout='>default_timeout=</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
   <span class='ivar'>@timeout_settings</span><span class='period'>.</span><span class='id identifier rubyid_default_timeout'>default_timeout</span> <span class='op'>=</span> <span class='id identifier rubyid_timeout'>timeout</span>
@@ -3539,13 +3547,13 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-799
-800
-801
-802</pre>
+793
+794
+795
+796</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 799</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 793</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_emulate'>emulate</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_viewport'>viewport</span> <span class='op'>=</span> <span class='id identifier rubyid_device'>device</span><span class='period'>.</span><span class='id identifier rubyid_viewport'>viewport</span>
@@ -3600,16 +3608,16 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-817
-818
-819
-820
-821
-822
-823</pre>
+811
+812
+813
+814
+815
+816
+817</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 817</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 811</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_emulate_media_type'>emulate_media_type</span><span class='lparen'>(</span><span class='id identifier rubyid_media_type'>media_type</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_media_type_str'>media_type_str</span> <span class='op'>=</span> <span class='id identifier rubyid_media_type'>media_type</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -3662,18 +3670,18 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
+836
+837
+838
+839
+840
+841
 842
 843
-844
-845
-846
-847
-848
-849
-850</pre>
+844</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 842</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 836</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_emulate_timezone'>emulate_timezone</span><span class='lparen'>(</span><span class='id identifier rubyid_timezone_id'>timezone_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_send_message'>send_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Emulation.setTimezoneOverride</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>timezoneId:</span> <span class='id identifier rubyid_timezone_id'>timezone_id</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -3752,12 +3760,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-864
-865
-866</pre>
+858
+859
+860</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 864</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 858</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -3830,13 +3838,13 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-306
-307
-308
-309</pre>
+301
+302
+303
+304</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 306</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 301</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_execution_context'>execution_context</span>
@@ -3886,12 +3894,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-463
-464
-465</pre>
+458
+459
+460</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 463</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 458</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_extra_http_headers='>extra_http_headers=</span><span class='lparen'>(</span><span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
   <span class='ivar'>@frame_manager</span><span class='period'>.</span><span class='id identifier rubyid_network_manager'>network_manager</span><span class='period'>.</span><span class='id identifier rubyid_extra_http_headers'>extra_http_headers</span> <span class='op'>=</span> <span class='id identifier rubyid_headers'>headers</span>
@@ -3970,15 +3978,69 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-258
-259
-260</pre>
+253
+254
+255</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 258</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 253</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_frames'>frames</span>
   <span class='ivar'>@frame_manager</span><span class='period'>.</span><span class='id identifier rubyid_frames'>frames</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="geolocation=-instance_method">
+  
+    #<strong>geolocation=</strong>(geolocation)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Geolocation.html" title="Puppeteer::Geolocation (class)">Puppeteer::Geolocation</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 198</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_geolocation='>geolocation=</span><span class='lparen'>(</span><span class='id identifier rubyid_geolocation'>geolocation</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_send_message'>send_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Emulation.setGeolocationOverride</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_geolocation'>geolocation</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -4044,12 +4106,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-776
-777
-778</pre>
+770
+771
+772</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 776</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 770</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_go_back'>go_back</span><span class='lparen'>(</span><span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_go'>go</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='id identifier rubyid_wait_until'>wait_until</span><span class='rparen'>)</span>
@@ -4118,12 +4180,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-782
-783
-784</pre>
+776
+777
+778</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 782</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 776</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_go_forward'>go_forward</span><span class='lparen'>(</span><span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_go'>go</span><span class='lparen'>(</span><span class='int'>+1</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='id identifier rubyid_wait_until'>wait_until</span><span class='rparen'>)</span>
@@ -4214,12 +4276,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-654
-655
-656</pre>
+648
+649
+650</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 654</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 648</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_goto'>goto</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='label'>referer:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_goto'>goto</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='label'>referer:</span> <span class='id identifier rubyid_referer'>referer</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='id identifier rubyid_wait_until'>wait_until</span><span class='rparen'>)</span>
@@ -4244,10 +4306,6 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-149
-150
-151
-152
 153
 154
 155
@@ -4256,10 +4314,14 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
 158
 159
 160
-161</pre>
+161
+162
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_file_chooser'>handle_file_chooser</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@file_chooser_interceptors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -4348,17 +4410,17 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-122
-123
-124
-125
 126
 127
 128
-129</pre>
+129
+130
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_init'>init</span>
   <span class='id identifier rubyid_await_all'><span class='object_link'><a href="ConcurrentRubyUtils.html#await_all-instance_method" title="Puppeteer::ConcurrentRubyUtils#await_all (method)">await_all</a></span></span><span class='lparen'>(</span>
@@ -4388,14 +4450,14 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-252
-253
-254
-255
-256</pre>
+247
+248
+249
+250
+251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 252</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 247</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_keyboard'>keyboard</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@keyboard</span><span class='period'>.</span><span class='id identifier rubyid_instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -4422,12 +4484,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-246
-247
-248</pre>
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 246</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 241</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_main_frame'>main_frame</span>
   <span class='ivar'>@frame_manager</span><span class='period'>.</span><span class='id identifier rubyid_main_frame'>main_frame</span>
@@ -4452,12 +4514,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-271
-272
-273</pre>
+266
+267
+268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 271</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_offline_mode='>offline_mode=</span><span class='lparen'>(</span><span class='id identifier rubyid_enabled'>enabled</span><span class='rparen'>)</span>
   <span class='ivar'>@frame_manager</span><span class='period'>.</span><span class='id identifier rubyid_network_manager'>network_manager</span><span class='period'>.</span><span class='id identifier rubyid_offline_mode'>offline_mode</span> <span class='op'>=</span> <span class='id identifier rubyid_enabled'>enabled</span>
@@ -4506,16 +4568,16 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-132
-133
-134
-135
 136
 137
-138</pre>
+138
+139
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../PageEmittedEvents.html" title="PageEmittedEvents (module)">PageEmittedEvents</a></span></span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
@@ -4568,16 +4630,16 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-141
-142
-143
-144
 145
 146
-147</pre>
+147
+148
+149
+150
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_once'>once</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../PageEmittedEvents.html" title="PageEmittedEvents (module)">PageEmittedEvents</a></span></span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_event_name'>event_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
@@ -4628,20 +4690,20 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
+996
+997
+998
+999
+1000
+1001
 1002
 1003
 1004
 1005
-1006
-1007
-1008
-1009
-1010
-1011
-1012</pre>
+1006</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 1002</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 996</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pdf'>pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_pdf_options'>pdf_options</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Page/PDFOptions.html" title="Puppeteer::Page::PDFOptions (class)">PDFOptions</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Page/PDFOptions.html#initialize-instance_method" title="Puppeteer::Page::PDFOptions#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -4711,13 +4773,13 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-315
-316
-317
-318</pre>
+310
+311
+312
+313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 315</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 310</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_objects'>query_objects</span><span class='lparen'>(</span><span class='id identifier rubyid_prototype_handle'>prototype_handle</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_execution_context'>execution_context</span>
@@ -4800,15 +4862,15 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-661
-662
-663
-664
-665
-666</pre>
+655
+656
+657
+658
+659
+660</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 661</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 655</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reload'>reload</span><span class='lparen'>(</span><span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_await_all'><span class='object_link'><a href="ConcurrentRubyUtils.html#await_all-instance_method" title="Puppeteer::ConcurrentRubyUtils#await_all (method)">await_all</a></span></span><span class='lparen'>(</span>
@@ -4860,12 +4922,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-267
-268
-269</pre>
+262
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 267</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 262</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_request_interception='>request_interception=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@frame_manager</span><span class='period'>.</span><span class='id identifier rubyid_network_manager'>network_manager</span><span class='period'>.</span><span class='id identifier rubyid_request_interception'>request_interception</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
@@ -4929,12 +4991,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-288
-289
-290</pre>
+283
+284
+285</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 288</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 283</span>
 
 <span class='kw'>def</span> <span class='const'>S</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='const'>S</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -4975,15 +5037,15 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-893
-894
-895
-896
-897
-898</pre>
+887
+888
+889
+890
+891
+892</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 893</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 887</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_screenshot'>screenshot</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_screenshot_options'>screenshot_options</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Page/ScreenshotOptions.html" title="Puppeteer::Page::ScreenshotOptions (class)">ScreenshotOptions</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Page/ScreenshotOptions.html#initialize-instance_method" title="Puppeteer::Page::ScreenshotOptions#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -5139,12 +5201,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-641
-642
-643</pre>
+635
+636
+637</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 641</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 635</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_content'>set_content</span><span class='lparen'>(</span><span class='id identifier rubyid_html'>html</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_set_content'>set_content</span><span class='lparen'>(</span><span class='id identifier rubyid_html'>html</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='id identifier rubyid_wait_until'>wait_until</span><span class='rparen'>)</span>
@@ -5219,12 +5281,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-324
-325
-326</pre>
+319
+320
+321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 324</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 319</span>
 
 <span class='kw'>def</span> <span class='const'>Seval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='const'>Seval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -5288,12 +5350,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-297
-298
-299</pre>
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 297</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 292</span>
 
 <span class='kw'>def</span> <span class='const'>SS</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='const'>SS</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -5368,12 +5430,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-334
-335
-336</pre>
+329
+330
+331</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 334</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 329</span>
 
 <span class='kw'>def</span> <span class='const'>SSeval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='const'>SSeval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -5437,12 +5499,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-343
-344
-345</pre>
+338
+339
+340</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 343</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 338</span>
 
 <span class='kw'>def</span> <span class='const'>Sx</span><span class='lparen'>(</span><span class='id identifier rubyid_expression'>expression</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='const'>Sx</span><span class='lparen'>(</span><span class='id identifier rubyid_expression'>expression</span><span class='rparen'>)</span>
@@ -5567,12 +5629,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-885
-886
-887</pre>
+879
+880
+881</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 885</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 879</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_title'>title</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span>
@@ -5697,12 +5759,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-629
-630
-631</pre>
+623
+624
+625</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 629</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 623</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_url'>url</span>
   <span class='id identifier rubyid_main_frame'>main_frame</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span>
@@ -5751,12 +5813,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-468
-469
-470</pre>
+463
+464
+465</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 468</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 463</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_agent='>user_agent=</span><span class='lparen'>(</span><span class='id identifier rubyid_user_agent'>user_agent</span><span class='rparen'>)</span>
   <span class='ivar'>@frame_manager</span><span class='period'>.</span><span class='id identifier rubyid_network_manager'>network_manager</span><span class='period'>.</span><span class='id identifier rubyid_user_agent'>user_agent</span> <span class='op'>=</span> <span class='id identifier rubyid_user_agent'>user_agent</span>
@@ -5820,10 +5882,6 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-171
-172
-173
-174
 175
 176
 177
@@ -5838,10 +5896,14 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
 186
 187
 188
-189</pre>
+189
+190
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 171</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_file_chooser'>wait_for_file_chooser</span><span class='lparen'>(</span><span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='ivar'>@file_chooser_interceptors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -6253,12 +6315,12 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
       <pre class="lines">
 
 
-262
-263
-264</pre>
+257
+258
+259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 257</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_workers'>workers</span>
   <span class='ivar'>@workers</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span>
@@ -6273,7 +6335,7 @@ await this._client.send(&#39;Emulation.setGeolocationOverride&#39;, latitude, ac
 </div>
 
       <div id="footer">
-  Generated on Wed Dec  2 20:10:08 2020 by
+  Generated on Tue Dec  8 10:50:09 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Exception: Puppeteer::WaitTask::TerminatedError
+  Exception: Puppeteer::Page::PageError
   
     &mdash; Documentation by YARD 0.9.25
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Puppeteer::WaitTask::TerminatedError";
+  pathId = "Puppeteer::Page::PageError";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (T)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../WaitTask.html" title="Puppeteer::WaitTask (class)">WaitTask</a></span></span>
+    <a href="../../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Page.html" title="Puppeteer::Page (class)">Page</a></span></span>
      &raquo; 
-    <span class="title">TerminatedError</span>
+    <span class="title">PageError</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Exception: Puppeteer::WaitTask::TerminatedError
+      <div id="content"><h1>Exception: Puppeteer::Page::PageError
   
   
   
@@ -76,7 +76,7 @@
           
             <li class="next">StandardError</li>
           
-            <li class="next">Puppeteer::WaitTask::TerminatedError</li>
+            <li class="next">Puppeteer::Page::PageError</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -96,12 +96,39 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/puppeteer/wait_task.rb</dd>
+    <dd>lib/puppeteer/page.rb</dd>
   </dl>
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>/**</p>
 
+<pre class="code ruby"><code class="ruby">* @param {?Array&lt;!Protocol.Performance.Metric&gt;} metrics
+* @return {!Metrics}
+*/
+</code></pre>
+
+<p>_buildMetricsObject(metrics) 
+<pre class="code ruby"><code class="ruby">const result = {;
+for (const metric of metrics || []) {
+  if (supportedMetrics.has(metric.name))
+    result[metric.name] = metric.value;
+}
+return result;
+</code></pre>
+
+<p>}</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -114,7 +141,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Dec  8 10:50:11 2020 by
+  Generated on Tue Dec  8 10:50:09 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
