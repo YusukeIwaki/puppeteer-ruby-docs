@@ -99,40 +99,7 @@
   
 </div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    
-<p>/**</p>
 
-<pre class="code ruby"><code class="ruby">* @param {Array&lt;Network.CookieParam&gt;} cookies
-*/
-</code></pre>
-
-<p>async setCookie(…cookies) 
-<pre class="code ruby"><code class="ruby">const pageURL = this.url();
-const startsWithHTTP = pageURL.startsWith(&#39;http&#39;);
-const items = cookies.map(cookie =&gt; {
-  const item = Object.assign({, cookie);
-  if (!item.url &amp;&amp; startsWithHTTP)
-    item.url = pageURL;
-  assert(item.url !== &#39;about:blank&#39;, `Blank page can not have cookie &quot;$itemitem.name&quot;`);
-  assert(!String.prototype.startsWith.call(item.url || &#39;&#39;, &#39;data:&#39;), `Data URL page can not have cookie &quot;$itemitem.name&quot;`);
-  return item;
-});
-await this.deleteCookie(...items);
-if (items.length)
-  await this._client.send(&#39;Network.setCookies&#39;, { cookies: items });
-</code></pre>
-
-<p>}</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
 
 
 
@@ -341,15 +308,15 @@ if (items.length)
       <pre class="lines">
 
 
-388
 389
 390
 391
 392
-393</pre>
+393
+394</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 388</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 389</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>content:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>type:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@content</span> <span class='op'>=</span> <span class='id identifier rubyid_content'>content</span>
@@ -395,12 +362,12 @@ if (items.length)
       <pre class="lines">
 
 
-394
 395
-396</pre>
+396
+397</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 394</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 395</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content'>content</span>
   <span class='ivar'>@content</span>
@@ -438,12 +405,12 @@ if (items.length)
       <pre class="lines">
 
 
-394
 395
-396</pre>
+396
+397</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 394</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 395</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span>
   <span class='ivar'>@path</span>
@@ -481,12 +448,12 @@ if (items.length)
       <pre class="lines">
 
 
-394
 395
-396</pre>
+396
+397</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 394</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 395</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -524,12 +491,12 @@ if (items.length)
       <pre class="lines">
 
 
-394
 395
-396</pre>
+396
+397</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 394</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/page.rb', line 395</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_url'>url</span>
   <span class='ivar'>@url</span>
@@ -545,7 +512,7 @@ if (items.length)
 </div>
 
       <div id="footer">
-  Generated on Tue Dec  8 10:51:55 2020 by
+  Generated on Tue Dec 15 11:20:46 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
