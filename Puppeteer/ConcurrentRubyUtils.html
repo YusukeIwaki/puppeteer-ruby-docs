@@ -419,7 +419,10 @@
 46
 47
 48
-49</pre>
+49
+50
+51
+52</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 42</span>
@@ -427,6 +430,9 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_future'>future</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'>Concurrent</span><span class='op'>::</span><span class='const'>Promises</span><span class='period'>.</span><span class='id identifier rubyid_future'>future</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='op'>*</span><span class='id identifier rubyid_block_args'>block_args</span><span class='op'>|</span>
     <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_block_args'>block_args</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="TimeoutError.html" title="Puppeteer::TimeoutError (class)">TimeoutError</a></span></span>
+    <span class='comment'># suppress error logging
+</span>    <span class='id identifier rubyid_raise'>raise</span>
   <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_err'>err</span>
     <span class='const'>Logger</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$stderr</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_warn'>warn</span><span class='lparen'>(</span><span class='id identifier rubyid_err'>err</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='id identifier rubyid_err'>err</span>
@@ -452,16 +458,16 @@
       <pre class="lines">
 
 
-51
-52
-53
 54
 55
 56
-57</pre>
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/concurrent_ruby_utils.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolvable_future'>resolvable_future</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_future'><span class='object_link'><a href="#future-instance_method" title="Puppeteer::ConcurrentRubyUtils#future (method)">future</a></span></span> <span class='op'>=</span> <span class='const'>Concurrent</span><span class='op'>::</span><span class='const'>Promises</span><span class='period'>.</span><span class='id identifier rubyid_resolvable_future'>resolvable_future</span>
@@ -480,7 +486,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 22 01:15:06 2020 by
+  Generated on Tue Dec 22 08:39:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.6.6).
 </div>
