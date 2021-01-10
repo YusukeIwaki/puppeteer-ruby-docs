@@ -299,6 +299,12 @@
       <pre class="lines">
 
 
+151
+152
+153
+154
+155
+156
 157
 158
 159
@@ -321,16 +327,10 @@
 176
 177
 178
-179
-180
-181
-182
-183
-184
-185</pre>
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/chrome.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/chrome.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@browser_options</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="BrowserOptions.html" title="Puppeteer::Launcher::BrowserOptions (class)">BrowserOptions</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="BrowserOptions.html#initialize-instance_method" title="Puppeteer::Launcher::BrowserOptions#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -403,12 +403,12 @@
       <pre class="lines">
 
 
-152
-153
-154</pre>
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/chrome.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/chrome.rb', line 146</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_args'>default_args</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Chrome/DefaultArgs.html" title="Puppeteer::Launcher::Chrome::DefaultArgs (class)">DefaultArgs</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Chrome/DefaultArgs.html#initialize-instance_method" title="Puppeteer::Launcher::Chrome::DefaultArgs#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="ChromeArgOptions.html" title="Puppeteer::Launcher::ChromeArgOptions (class)">ChromeArgOptions</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ChromeArgOptions.html#initialize-instance_method" title="Puppeteer::Launcher::ChromeArgOptions#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -455,12 +455,12 @@
       <pre class="lines">
 
 
-210
-211
-212</pre>
+204
+205
+206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/chrome.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/chrome.rb', line 204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_executable_path'>executable_path</span>
   <span class='id identifier rubyid_resolve_executable_path'>resolve_executable_path</span>
@@ -593,9 +593,7 @@
 74
 75
 76
-77
-78
-79</pre>
+77</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/chrome.rb', line 8</span>
@@ -662,9 +660,7 @@
       <span class='label'>close_callback:</span> <span class='tlambda'>-&gt;</span> <span class='tlambeg'>{</span> <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span> <span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='rparen'>)</span>
 
-    <span class='kw'>unless</span> <span class='id identifier rubyid_browser'>browser</span><span class='period'>.</span><span class='id identifier rubyid_pages'>pages</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-      <span class='id identifier rubyid_browser'>browser</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_target'>wait_for_target</span><span class='lparen'>(</span><span class='label'>predicate:</span> <span class='tlambda'>-&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span> <span class='tlambeg'>{</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>page</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+    <span class='id identifier rubyid_browser'>browser</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_target'>wait_for_target</span><span class='lparen'>(</span><span class='label'>predicate:</span> <span class='tlambda'>-&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span> <span class='tlambeg'>{</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>page</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='rparen'>)</span>
 
     <span class='id identifier rubyid_browser'>browser</span>
   <span class='kw'>rescue</span>
@@ -692,12 +688,12 @@
       <pre class="lines">
 
 
-214
-215
-216</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/chrome.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/launcher/chrome.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product'>product</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>chrome</span><span class='tstring_end'>&#39;</span></span>
@@ -712,7 +708,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jan  9 00:26:45 2021 by
+  Generated on Sun Jan 10 00:50:16 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
