@@ -433,7 +433,8 @@
 12
 13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 11</span>
@@ -442,6 +443,7 @@
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@world</span> <span class='op'>=</span> <span class='id identifier rubyid_world'>world</span>
   <span class='ivar'>@context_id</span> <span class='op'>=</span> <span class='id identifier rubyid_context_payload'>context_payload</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>id</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@context_name</span> <span class='op'>=</span> <span class='id identifier rubyid_context_payload'>context_payload</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -481,12 +483,12 @@
       <pre class="lines">
 
 
-17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -524,12 +526,12 @@
       <pre class="lines">
 
 
-17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_world'>world</span>
   <span class='ivar'>@world</span>
@@ -598,19 +600,19 @@
       <pre class="lines">
 
 
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225</pre>
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 216</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 227</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_adopt_backend_node_id'>adopt_backend_node_id</span><span class='lparen'>(</span><span class='id identifier rubyid_backend_node_id'>backend_node_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_send_message'>send_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>DOM.resolveNode</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
@@ -679,18 +681,6 @@
       <pre class="lines">
 
 
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
 241
 242
 243
@@ -698,10 +688,22 @@
 245
 246
 247
-248</pre>
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 229</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 241</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_adopt_element_handle'>adopt_element_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_element_handle'>element_handle</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_element_handle'>element_handle</span><span class='period'>.</span><span class='id identifier rubyid_execution_context'>execution_context</span> <span class='op'>==</span> <span class='kw'>self</span>
@@ -780,12 +782,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_evaluate_internal'>evaluate_internal</span><span class='lparen'>(</span><span class='kw'>true</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -847,12 +849,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_evaluate_internal'>evaluate_internal</span><span class='lparen'>(</span><span class='kw'>false</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -899,14 +901,14 @@
       <pre class="lines">
 
 
-20
-21
-22
-23
-24</pre>
+31
+32
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/execution_context.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_frame'>frame</span>
   <span class='id identifier rubyid_if_present'>if_present</span><span class='lparen'>(</span><span class='ivar'>@world</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_world'>world</span><span class='op'>|</span>
@@ -923,7 +925,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 23 17:27:52 2021 by
+  Generated on Tue Feb 23 17:32:27 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
