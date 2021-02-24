@@ -304,6 +304,58 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#eval_on_selector-instance_method" title="#eval_on_selector (instance method)">#<strong>eval_on_selector</strong>(selector, page_function, *args)  &#x21d2; !Promise&lt;(!Object|undefined)&gt; </a>
+    
+
+    
+      (also: #Seval)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>`$eval()` in JavaScript.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#eval_on_selector_all-instance_method" title="#eval_on_selector_all (instance method)">#<strong>eval_on_selector_all</strong>(selector, page_function, *args)  &#x21d2; !Promise&lt;(!Object|undefined)&gt; </a>
+    
+
+    
+      (also: #SSeval)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>`$$eval()` in JavaScript.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#evaluate-instance_method" title="#evaluate (instance method)">#<strong>evaluate</strong>(page_function, *args)  &#x21d2; !Promise&lt;*&gt; </a>
     
 
@@ -440,9 +492,11 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#S-instance_method" title="#S (instance method)">#<strong>S</strong>(selector)  &#x21d2; !Promise&lt;?Puppeteer.ElementHandle&gt; </a>
+      <a href="#query_selector-instance_method" title="#query_selector (instance method)">#<strong>query_selector</strong>(selector)  &#x21d2; !Promise&lt;?Puppeteer.ElementHandle&gt; </a>
     
 
+    
+      (also: #S)
     
   </span>
   
@@ -456,6 +510,32 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>`$()` in JavaScript.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query_selector_all-instance_method" title="#query_selector_all (instance method)">#<strong>query_selector_all</strong>(selector)  &#x21d2; !Promise&lt;!Array&lt;!Puppeteer.ElementHandle&gt;&gt; </a>
+    
+
+    
+      (also: #SS)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>`$$()` in JavaScript.</p>
 </div></span>
   
 </li>
@@ -501,78 +581,6 @@
 
   
     <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#Seval-instance_method" title="#Seval (instance method)">#<strong>Seval</strong>(selector, page_function, *args)  &#x21d2; !Promise&lt;(!Object|undefined)&gt; </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>`$eval()` in JavaScript.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#SS-instance_method" title="#SS (instance method)">#<strong>SS</strong>(selector)  &#x21d2; !Promise&lt;!Array&lt;!Puppeteer.ElementHandle&gt;&gt; </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>`$$()` in JavaScript.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#SSeval-instance_method" title="#SSeval (instance method)">#<strong>SSeval</strong>(selector, page_function, *args)  &#x21d2; !Promise&lt;(!Object|undefined)&gt; </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>`$$eval()` in JavaScript.</p>
-</div></span>
   
 </li>
 
@@ -905,10 +913,6 @@
       <pre class="lines">
 
 
-442
-443
-444
-445
 446
 447
 448
@@ -929,10 +933,14 @@
 463
 464
 465
-466</pre>
+466
+467
+468
+469
+470</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 442</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 446</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_binding_to_context'>add_binding_to_context</span><span class='lparen'>(</span><span class='id identifier rubyid_context'>context</span><span class='comma'>,</span> <span class='id identifier rubyid_binding_function'>binding_function</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@ctx_bindings</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_binding_identifier'>binding_identifier</span><span class='lparen'>(</span><span class='id identifier rubyid_binding_function'>binding_function</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1047,17 +1055,17 @@
       <pre class="lines">
 
 
-378
-379
-380
-381
-382</pre>
+382
+383
+384
+385
+386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 378</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 382</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_click'>click</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>button:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>click_count:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#S-instance_method" title="Puppeteer::DOMWorld#S (method)">S</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_click'>click</span><span class='lparen'>(</span><span class='label'>delay:</span> <span class='id identifier rubyid_delay'>delay</span><span class='comma'>,</span> <span class='label'>button:</span> <span class='id identifier rubyid_button'>button</span><span class='comma'>,</span> <span class='label'>click_count:</span> <span class='id identifier rubyid_click_count'>click_count</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_dispose'>dispose</span>
 <span class='kw'>end</span></pre>
@@ -1103,10 +1111,6 @@
       <pre class="lines">
 
 
-187
-188
-189
-190
 191
 192
 193
@@ -1114,10 +1118,14 @@
 195
 196
 197
-198</pre>
+198
+199
+200
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 187</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 191</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content'>content</span>
   <span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-JAVASCRIPT</span><span class='rparen'>)</span>
@@ -1268,6 +1276,196 @@
   <span class='ivar'>@wait_tasks</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_wait_task'>wait_task</span><span class='op'>|</span>
     <span class='id identifier rubyid_wait_task'>wait_task</span><span class='period'>.</span><span class='id identifier rubyid_terminate'>terminate</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WaitTask.html" title="Puppeteer::WaitTask (class)">WaitTask</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WaitTask/TerminatedError.html" title="Puppeteer::WaitTask::TerminatedError (class)">TerminatedError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="WaitTask.html#initialize-instance_method" title="Puppeteer::WaitTask#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>waitForFunction failed: frame got detached.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="eval_on_selector-instance_method">
+  
+    #<strong>eval_on_selector</strong>(selector, page_function, *args)  &#x21d2; <tt>!Promise&lt;(!Object|undefined)&gt;</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='Seval-instance_method'>Seval</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>`$eval()` in JavaScript.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>selector</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pageFunction</span>
+      
+      
+        <span class='type'>(<tt>Function|string</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>args</span>
+      
+      
+        <span class='type'>(<tt>!Array&lt;*&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>!Promise&lt;(!Object|undefined)&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 167</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_eval_on_selector'>eval_on_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_eval_on_selector'>eval_on_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="eval_on_selector_all-instance_method">
+  
+    #<strong>eval_on_selector_all</strong>(selector, page_function, *args)  &#x21d2; <tt>!Promise&lt;(!Object|undefined)&gt;</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='SSeval-instance_method'>SSeval</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>`$$eval()` in JavaScript.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>selector</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pageFunction</span>
+      
+      
+        <span class='type'>(<tt>Function|string</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>args</span>
+      
+      
+        <span class='type'>(<tt>!Array&lt;*&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>!Promise&lt;(!Object|undefined)&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+177
+178
+179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 177</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_eval_on_selector_all'>eval_on_selector_all</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_eval_on_selector_all'>eval_on_selector_all</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1527,17 +1725,17 @@
       <pre class="lines">
 
 
-385
-386
-387
-388
-389</pre>
+389
+390
+391
+392
+393</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 385</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 389</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_focus'>focus</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#S-instance_method" title="Puppeteer::DOMWorld#S (method)">S</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_focus'>focus</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_dispose'>dispose</span>
 <span class='kw'>end</span></pre>
@@ -1599,18 +1797,22 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="S-instance_method">
+  <h3 class="signature " id="query_selector-instance_method">
   
-    #<strong>S</strong>(selector)  &#x21d2; <tt>!Promise&lt;?<span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span>.<span class='object_link'><a href="ElementHandle.html" title="Puppeteer::ElementHandle (class)">ElementHandle</a></span>&gt;</tt> 
+    #<strong>query_selector</strong>(selector)  &#x21d2; <tt>!Promise&lt;?<span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span>.<span class='object_link'><a href="ElementHandle.html" title="Puppeteer::ElementHandle (class)">ElementHandle</a></span>&gt;</tt> 
   
 
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='S-instance_method'>S</span></span>
+    </span>
   
 
   
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>`$()` in JavaScript. $ is not allowed to use as a method name in Ruby.</p>
+<p>`$()` in JavaScript.</p>
 
 
   </div>
@@ -1659,8 +1861,81 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 132</span>
 
-<span class='kw'>def</span> <span class='const'>S</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='const'>S</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="query_selector_all-instance_method">
+  
+    #<strong>query_selector_all</strong>(selector)  &#x21d2; <tt>!Promise&lt;!Array&lt;!<span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span>.<span class='object_link'><a href="ElementHandle.html" title="Puppeteer::ElementHandle (class)">ElementHandle</a></span>&gt;&gt;</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='SS-instance_method'>SS</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>`$$()` in JavaScript.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>selector</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>!Promise&lt;!Array&lt;!<span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span>.<span class='object_link'><a href="ElementHandle.html" title="Puppeteer::ElementHandle (class)">ElementHandle</a></span>&gt;&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+185
+186
+187</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 185</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_query_selector_all'>query_selector_all</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_query_selector_all'>query_selector_all</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1719,19 +1994,19 @@
       <pre class="lines">
 
 
-403
-404
-405
-406
 407
 408
-409</pre>
+409
+410
+411
+412
+413</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 403</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 407</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#S-instance_method" title="Puppeteer::DOMWorld#S (method)">S</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_dispose'>dispose</span>
 
@@ -1807,10 +2082,6 @@
       <pre class="lines">
 
 
-203
-204
-205
-206
 207
 208
 209
@@ -1831,10 +2102,14 @@
 224
 225
 226
-227</pre>
+227
+228
+229
+230
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 203</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 207</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_content'>set_content</span><span class='lparen'>(</span><span class='id identifier rubyid_html'>html</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_option_wait_until'>option_wait_until</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_wait_until'>wait_until</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>load</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
@@ -1860,257 +2135,6 @@
   <span class='kw'>ensure</span>
     <span class='id identifier rubyid_watcher'>watcher</span><span class='period'>.</span><span class='id identifier rubyid_dispose'>dispose</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="Seval-instance_method">
-  
-    #<strong>Seval</strong>(selector, page_function, *args)  &#x21d2; <tt>!Promise&lt;(!Object|undefined)&gt;</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>`$eval()` in JavaScript. $ is not allowed to use as a method name in Ruby.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>selector</span>
-      
-      
-        <span class='type'>(<tt>string</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>pageFunction</span>
-      
-      
-        <span class='type'>(<tt>Function|string</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>args</span>
-      
-      
-        <span class='type'>(<tt>!Array&lt;*&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>!Promise&lt;(!Object|undefined)&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-166
-167
-168</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 166</span>
-
-<span class='kw'>def</span> <span class='const'>Seval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='const'>Seval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SS-instance_method">
-  
-    #<strong>SS</strong>(selector)  &#x21d2; <tt>!Promise&lt;!Array&lt;!<span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span>.<span class='object_link'><a href="ElementHandle.html" title="Puppeteer::ElementHandle (class)">ElementHandle</a></span>&gt;&gt;</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>`$$()` in JavaScript. $ is not allowed to use as a method name in Ruby.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>selector</span>
-      
-      
-        <span class='type'>(<tt>string</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>!Promise&lt;!Array&lt;!<span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span>.<span class='object_link'><a href="ElementHandle.html" title="Puppeteer::ElementHandle (class)">ElementHandle</a></span>&gt;&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-182
-183
-184</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 182</span>
-
-<span class='kw'>def</span> <span class='const'>SS</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='const'>SS</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="SSeval-instance_method">
-  
-    #<strong>SSeval</strong>(selector, page_function, *args)  &#x21d2; <tt>!Promise&lt;(!Object|undefined)&gt;</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>`$$eval()` in JavaScript. $ is not allowed to use as a method name in Ruby.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>selector</span>
-      
-      
-        <span class='type'>(<tt>string</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>pageFunction</span>
-      
-      
-        <span class='type'>(<tt>Function|string</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>args</span>
-      
-      
-        <span class='type'>(<tt>!Array&lt;*&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>!Promise&lt;(!Object|undefined)&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-175
-176
-177</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 175</span>
-
-<span class='kw'>def</span> <span class='const'>SSeval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='const'>SSeval</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2171,12 +2195,12 @@
       <pre class="lines">
 
 
-157
 158
-159</pre>
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 158</span>
 
 <span class='kw'>def</span> <span class='const'>Sx</span><span class='lparen'>(</span><span class='id identifier rubyid_expression'>expression</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='const'>Sx</span><span class='lparen'>(</span><span class='id identifier rubyid_expression'>expression</span><span class='rparen'>)</span>
@@ -2225,17 +2249,17 @@
       <pre class="lines">
 
 
-412
-413
-414
-415
-416</pre>
+416
+417
+418
+419
+420</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 412</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 416</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#S-instance_method" title="Puppeteer::DOMWorld#S (method)">S</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_dispose'>dispose</span>
 <span class='kw'>end</span></pre>
@@ -2281,12 +2305,12 @@
       <pre class="lines">
 
 
-610
-611
-612</pre>
+614
+615
+616</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 610</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 614</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_title'>title</span>
   <span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>() =&gt; document.title</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -2359,17 +2383,17 @@
       <pre class="lines">
 
 
-421
-422
-423
-424
-425</pre>
+425
+426
+427
+428
+429</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 421</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 425</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type_text'>type_text</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#S-instance_method" title="Puppeteer::DOMWorld#S (method)">S</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_type_text'>type_text</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='id identifier rubyid_delay'>delay</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_dispose'>dispose</span>
 <span class='kw'>end</span></pre>
@@ -2469,10 +2493,6 @@
       <pre class="lines">
 
 
-594
-595
-596
-597
 598
 599
 600
@@ -2481,10 +2501,14 @@
 603
 604
 605
-606</pre>
+606
+607
+608
+609
+610</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 594</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 598</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_function'>wait_for_function</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>polling:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_option_polling'>option_polling</span> <span class='op'>=</span> <span class='id identifier rubyid_polling'>polling</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>raf</span><span class='tstring_end'>&#39;</span></span>
@@ -2592,14 +2616,14 @@
       <pre class="lines">
 
 
-431
-432
-433
-434
-435</pre>
+435
+436
+437
+438
+439</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 431</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 435</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_selector'>wait_for_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='comment'># call wait_for_selector_in_page with custom query selector.
@@ -2699,10 +2723,6 @@
       <pre class="lines">
 
 
-552
-553
-554
-555
 556
 557
 558
@@ -2734,10 +2754,14 @@
 584
 585
 586
-587</pre>
+587
+588
+589
+590
+591</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 552</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 556</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_xpath'>wait_for_xpath</span><span class='lparen'>(</span><span class='id identifier rubyid_xpath'>xpath</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_option_wait_for_visible'>option_wait_for_visible</span> <span class='op'>=</span> <span class='id identifier rubyid_visible'>visible</span> <span class='op'>||</span> <span class='kw'>false</span>
@@ -2785,7 +2809,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 23 17:38:16 2021 by
+  Generated on Wed Feb 24 05:26:15 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>

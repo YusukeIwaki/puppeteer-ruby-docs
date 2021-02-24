@@ -105,18 +105,18 @@
   <span class='id identifier rubyid_page'>page</span><span class='period'>.</span><span class='id identifier rubyid_viewport'>viewport</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Puppeteer/Viewport.html" title="Puppeteer::Viewport (class)">Viewport</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Puppeteer/Viewport.html#initialize-instance_method" title="Puppeteer::Viewport#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>width:</span> <span class='int'>1280</span><span class='comma'>,</span> <span class='label'>height:</span> <span class='int'>800</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_page'>page</span><span class='period'>.</span><span class='id identifier rubyid_goto'>goto</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://github.com/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>wait_until:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>domcontentloaded</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_form'>form</span> <span class='op'>=</span> <span class='id identifier rubyid_page'>page</span><span class='period'>.</span><span class='const'>S</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>form.js-site-search-form</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_searchInput'>searchInput</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='const'>S</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input.header-search-input</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_form'>form</span> <span class='op'>=</span> <span class='id identifier rubyid_page'>page</span><span class='period'>.</span><span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>form.js-site-search-form</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_searchInput'>searchInput</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input.header-search-input</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_searchInput'>searchInput</span><span class='period'>.</span><span class='id identifier rubyid_type_text'>type_text</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>puppeteer</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_await_all'><span class='object_link'><a href="Puppeteer/ConcurrentRubyUtils.html#await_all-instance_method" title="Puppeteer::ConcurrentRubyUtils#await_all (method)">await_all</a></span></span><span class='lparen'>(</span>
     <span class='id identifier rubyid_page'>page</span><span class='period'>.</span><span class='id identifier rubyid_async_wait_for_navigation'>async_wait_for_navigation</span><span class='comma'>,</span>
     <span class='id identifier rubyid_searchInput'>searchInput</span><span class='period'>.</span><span class='id identifier rubyid_async_press'>async_press</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Enter</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
   <span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_list'>list</span> <span class='op'>=</span> <span class='id identifier rubyid_page'>page</span><span class='period'>.</span><span class='const'>S</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ul.repo-list</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_items'>items</span> <span class='op'>=</span> <span class='id identifier rubyid_list'>list</span><span class='period'>.</span><span class='const'>SS</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>div.f4</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_list'>list</span> <span class='op'>=</span> <span class='id identifier rubyid_page'>page</span><span class='period'>.</span><span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ul.repo-list</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_items'>items</span> <span class='op'>=</span> <span class='id identifier rubyid_list'>list</span><span class='period'>.</span><span class='id identifier rubyid_query_selector_all'>query_selector_all</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>div.f4</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
-    <span class='id identifier rubyid_title'>title</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='const'>Seval</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a =&gt; a.innerText</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_title'>title</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_eval_on_selector'>eval_on_selector</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a =&gt; a.innerText</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>==&gt; </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_title'>title</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span>
@@ -192,7 +192,7 @@ RSpec.describe &#39;hotel.testplanisphere.dev&#39;, type: :feature do
     puppeteer_page = @browser.pages.first
     puppeteer_page.wait_for_selector(&#39;li.nav-item&#39;)
 
-    reservation_link = puppeteer_page.SS(&#39;li.nav-item&#39;)[1]
+    reservation_link = puppeteer_page.query_selector_all(&#39;li.nav-item&#39;)[1]
 
     await_all(
       puppeteer_page.async_wait_for_navigation,
@@ -209,7 +209,7 @@ RSpec.describe &#39;hotel.testplanisphere.dev&#39;, type: :feature do
 
     # expectation with puppeteer
     puppeteer_page = @browser.pages.first
-    body_text = puppeteer_page.Seval(&#39;body&#39;, &#39;(el) =&gt; el.textContent&#39;)
+    body_text = puppeteer_page.eval_on_selector(&#39;body&#39;, &#39;(el) =&gt; el.textContent&#39;)
     expect(body_text).to include(&#39;宿泊プラン一覧&#39;)
   end
 </code></pre>
@@ -226,7 +226,7 @@ RSpec.describe &#39;hotel.testplanisphere.dev&#39;, type: :feature do
 </div></div>
 
       <div id="footer">
-  Generated on Tue Feb 23 17:38:14 2021 by
+  Generated on Wed Feb 24 05:26:13 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
