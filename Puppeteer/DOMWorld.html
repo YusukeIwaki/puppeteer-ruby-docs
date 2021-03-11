@@ -121,6 +121,54 @@
   
 </p>
 
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="ADD_SCRIPT_URL-constant" class="">ADD_SCRIPT_URL =
+          
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;~JAVASCRIPT</span>
+<span class='tstring_content'>async (url, type) =&gt; {
+  const script = document.createElement(&#39;script&#39;);
+  script.src = url;
+  if (type)
+    script.type = type;
+  const promise = new Promise((res, rej) =&gt; {
+    script.onload = res;
+    script.onerror = rej;
+  });
+  document.head.appendChild(script);
+  await promise;
+  return script;
+}
+</span><span class='heredoc_end'>JAVASCRIPT</span></pre></dd>
+      
+        <dt id="ADD_SCRIPT_CONTENT-constant" class="">ADD_SCRIPT_CONTENT =
+          
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;~JAVASCRIPT</span>
+<span class='tstring_content'>(content, type) =&gt; {
+  if (type === undefined) type = &#39;text/javascript&#39;;
+  const script = document.createElement(&#39;script&#39;);
+  script.type = type;
+  script.text = content;
+  let error = null;
+  script.onerror = e =&gt; error = e;
+  document.head.appendChild(script);
+  if (error)
+    throw error;
+  return script;
+}
+</span><span class='heredoc_end'>JAVASCRIPT</span></pre></dd>
+      
+    </dl>
+  
+
 
 
 
@@ -173,6 +221,50 @@
   <span class="summary_signature">
     
       <a href="#add_binding_to_context-instance_method" title="#add_binding_to_context (instance method)">#<strong>add_binding_to_context</strong>(context, binding_function)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_script_tag-instance_method" title="#add_script_tag (instance method)">#<strong>add_script_tag</strong>(url: nil, path: nil, content: nil, type: nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_style_tag-instance_method" title="#add_style_tag (instance method)">#<strong>add_style_tag</strong>(url: nil, path: nil, content: nil)  &#x21d2; Object </a>
     
 
     
@@ -913,6 +1005,12 @@
       <pre class="lines">
 
 
+440
+441
+442
+443
+444
+445
 446
 447
 448
@@ -931,16 +1029,10 @@
 461
 462
 463
-464
-465
-466
-467
-468
-469
-470</pre>
+464</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 446</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 440</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_binding_to_context'>add_binding_to_context</span><span class='lparen'>(</span><span class='id identifier rubyid_context'>context</span><span class='comma'>,</span> <span class='id identifier rubyid_binding_function'>binding_function</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@ctx_bindings</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_binding_identifier'>binding_identifier</span><span class='lparen'>(</span><span class='id identifier rubyid_binding_function'>binding_function</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -967,6 +1059,370 @@
   <span class='kw'>end</span>
   <span class='ivar'>@ctx_bindings</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_binding_identifier'>binding_identifier</span><span class='lparen'>(</span><span class='id identifier rubyid_binding_function'>binding_function</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_script_tag-instance_method">
+  
+    #<strong>add_script_tag</strong>(url: nil, path: nil, content: nil, type: nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>String?</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>path</span>
+      
+      
+        <span class='type'>(<tt>String?</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>content</span>
+      
+      
+        <span class='type'>(<tt>String?</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>type</span>
+      
+      
+        <span class='type'>(<tt>String?</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 237</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_script_tag'>add_script_tag</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>content:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>type:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_url'>url</span>
+    <span class='kw'>begin</span>
+      <span class='kw'>return</span> <span class='id identifier rubyid_execution_context'>execution_context</span><span class='period'>.</span>
+        <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#ADD_SCRIPT_URL-constant" title="Puppeteer::DOMWorld::ADD_SCRIPT_URL (constant)">ADD_SCRIPT_URL</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span>
+        <span class='id identifier rubyid_as_element'>as_element</span>
+    <span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ExecutionContext.html" title="Puppeteer::ExecutionContext (class)">ExecutionContext</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ExecutionContext/EvaluationError.html" title="Puppeteer::ExecutionContext::EvaluationError (class)">EvaluationError</a></span></span> <span class='comment'># for Chrome
+</span>      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Loading script from </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_url'>url</span><span class='embexpr_end'>}</span><span class='tstring_content'> failed</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="../Puppeteer.html" title="Puppeteer (class)">Puppeteer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Connection.html" title="Puppeteer::Connection (class)">Connection</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Connection/ProtocolError.html" title="Puppeteer::Connection::ProtocolError (class)">ProtocolError</a></span></span> <span class='comment'># for Firefox
+</span>      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Loading script from </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_url'>url</span><span class='embexpr_end'>}</span><span class='tstring_content'> failed</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_path'>path</span>
+    <span class='id identifier rubyid_contents'>contents</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_contents'>contents</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>//# sourceURL=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_execution_context'>execution_context</span><span class='period'>.</span>
+      <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#ADD_SCRIPT_CONTENT-constant" title="Puppeteer::DOMWorld::ADD_SCRIPT_CONTENT (constant)">ADD_SCRIPT_CONTENT</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_contents'>contents</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span>
+      <span class='id identifier rubyid_as_element'>as_element</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_content'>content</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_execution_context'>execution_context</span><span class='period'>.</span>
+      <span class='id identifier rubyid_evaluate_handle'>evaluate_handle</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#ADD_SCRIPT_CONTENT-constant" title="Puppeteer::DOMWorld::ADD_SCRIPT_CONTENT (constant)">ADD_SCRIPT_CONTENT</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span>
+      <span class='id identifier rubyid_as_element'>as_element</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Provide an object with a `url`, `path` or `content` property</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_style_tag-instance_method">
+  
+    #<strong>add_style_tag</strong>(url: nil, path: nil, content: nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>String?</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>path</span>
+      
+      
+        <span class='type'>(<tt>String?</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>content</span>
+      
+      
+        <span class='type'>(<tt>String?</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 301</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_style_tag'>add_style_tag</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>content:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='comment'>#   const {
+</span><span class='comment'>#     url = null,
+</span><span class='comment'>#     path = null,
+</span><span class='comment'>#     content = null
+</span><span class='comment'>#   } = options;
+</span><span class='comment'>#   if (url !== null) {
+</span><span class='comment'>#     try {
+</span><span class='comment'>#       const context = await this.executionContext();
+</span><span class='comment'>#       return (await context.evaluateHandle(addStyleUrl, url)).asElement();
+</span><span class='comment'>#     } catch (error) {
+</span><span class='comment'>#       throw new Error(`Loading style from ${url} failed`);
+</span><span class='comment'>#     }
+</span><span class='comment'>#   }
+</span>
+<span class='comment'>#   if (path !== null) {
+</span><span class='comment'>#     let contents = await readFileAsync(path, &#39;utf8&#39;);
+</span><span class='comment'>#     contents += &#39;/*# sourceURL=&#39; + path.replace(/\n/g, &#39;&#39;) + &#39;*/&#39;;
+</span><span class='comment'>#     const context = await this.executionContext();
+</span><span class='comment'>#     return (await context.evaluateHandle(addStyleContent, contents)).asElement();
+</span><span class='comment'>#   }
+</span>
+<span class='comment'>#   if (content !== null) {
+</span><span class='comment'>#     const context = await this.executionContext();
+</span><span class='comment'>#     return (await context.evaluateHandle(addStyleContent, content)).asElement();
+</span><span class='comment'>#   }
+</span>
+<span class='comment'>#   throw new Error(&#39;Provide an object with a `url`, `path` or `content` property&#39;);
+</span>
+<span class='comment'>#   /**
+</span><span class='comment'>#    * @param {string} url
+</span><span class='comment'>#    * @return {!Promise&lt;!HTMLElement&gt;}
+</span><span class='comment'>#    */
+</span><span class='comment'>#   async function addStyleUrl(url) {
+</span><span class='comment'>#     const link = document.createElement(&#39;link&#39;);
+</span><span class='comment'>#     link.rel = &#39;stylesheet&#39;;
+</span><span class='comment'>#     link.href = url;
+</span><span class='comment'>#     const promise = new Promise((res, rej) =&gt; {
+</span><span class='comment'>#       link.onload = res;
+</span><span class='comment'>#       link.onerror = rej;
+</span><span class='comment'>#     });
+</span><span class='comment'>#     document.head.appendChild(link);
+</span><span class='comment'>#     await promise;
+</span><span class='comment'>#     return link;
+</span><span class='comment'>#   }
+</span>
+<span class='comment'>#   /**
+</span><span class='comment'>#    * @param {string} content
+</span><span class='comment'>#    * @return {!Promise&lt;!HTMLElement&gt;}
+</span><span class='comment'>#    */
+</span><span class='comment'>#   async function addStyleContent(content) {
+</span><span class='comment'>#     const style = document.createElement(&#39;style&#39;);
+</span><span class='comment'>#     style.type = &#39;text/css&#39;;
+</span><span class='comment'>#     style.appendChild(document.createTextNode(content));
+</span><span class='comment'>#     const promise = new Promise((res, rej) =&gt; {
+</span><span class='comment'>#       style.onload = res;
+</span><span class='comment'>#       style.onerror = rej;
+</span><span class='comment'>#     });
+</span><span class='comment'>#     document.head.appendChild(style);
+</span><span class='comment'>#     await promise;
+</span><span class='comment'>#     return style;
+</span><span class='comment'>#   }
+</span><span class='comment'># }
+</span><span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1055,14 +1511,14 @@
       <pre class="lines">
 
 
-382
-383
-384
-385
-386</pre>
+376
+377
+378
+379
+380</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 382</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 376</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_click'>click</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>button:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>click_count:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -1725,14 +2181,14 @@
       <pre class="lines">
 
 
-389
-390
-391
-392
-393</pre>
+383
+384
+385
+386
+387</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 389</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 383</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_focus'>focus</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -1994,16 +2450,16 @@
       <pre class="lines">
 
 
-407
-408
-409
-410
-411
-412
-413</pre>
+401
+402
+403
+404
+405
+406
+407</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 407</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 401</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -2249,14 +2705,14 @@
       <pre class="lines">
 
 
-416
-417
-418
-419
-420</pre>
+410
+411
+412
+413
+414</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 416</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 410</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -2305,12 +2761,12 @@
       <pre class="lines">
 
 
-614
-615
-616</pre>
+608
+609
+610</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 614</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 608</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_title'>title</span>
   <span class='id identifier rubyid_evaluate'>evaluate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>() =&gt; document.title</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -2383,14 +2839,14 @@
       <pre class="lines">
 
 
-425
-426
-427
-428
-429</pre>
+419
+420
+421
+422
+423</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 425</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 419</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type_text'>type_text</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='label'>delay:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_query_selector'>query_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html" title="Puppeteer::DOMWorld::ElementNotFoundError (class)">ElementNotFoundError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DOMWorld/ElementNotFoundError.html#initialize-instance_method" title="Puppeteer::DOMWorld::ElementNotFoundError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='rparen'>)</span>
@@ -2493,22 +2949,22 @@
       <pre class="lines">
 
 
+592
+593
+594
+595
+596
+597
 598
 599
 600
 601
 602
 603
-604
-605
-606
-607
-608
-609
-610</pre>
+604</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 598</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 592</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_function'>wait_for_function</span><span class='lparen'>(</span><span class='id identifier rubyid_page_function'>page_function</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>polling:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_option_polling'>option_polling</span> <span class='op'>=</span> <span class='id identifier rubyid_polling'>polling</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>raf</span><span class='tstring_end'>&#39;</span></span>
@@ -2616,14 +3072,14 @@
       <pre class="lines">
 
 
-435
-436
-437
-438
-439</pre>
+429
+430
+431
+432
+433</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 435</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 429</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_selector'>wait_for_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_selector'>selector</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='comment'># call wait_for_selector_in_page with custom query selector.
@@ -2723,6 +3179,12 @@
       <pre class="lines">
 
 
+550
+551
+552
+553
+554
+555
 556
 557
 558
@@ -2752,16 +3214,10 @@
 582
 583
 584
-585
-586
-587
-588
-589
-590
-591</pre>
+585</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 556</span>
+      <pre class="code"><span class="info file"># File 'lib/puppeteer/dom_world.rb', line 550</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait_for_xpath'>wait_for_xpath</span><span class='lparen'>(</span><span class='id identifier rubyid_xpath'>xpath</span><span class='comma'>,</span> <span class='label'>visible:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>hidden:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>timeout:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_option_wait_for_visible'>option_wait_for_visible</span> <span class='op'>=</span> <span class='id identifier rubyid_visible'>visible</span> <span class='op'>||</span> <span class='kw'>false</span>
@@ -2809,7 +3265,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Mar  6 12:27:00 2021 by
+  Generated on Thu Mar 11 10:33:50 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
